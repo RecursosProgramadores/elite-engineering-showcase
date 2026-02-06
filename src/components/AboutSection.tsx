@@ -1,33 +1,18 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Target, Eye, History, Award } from "lucide-react";
+import { Target, Eye, History, Rocket, CheckCircle2 } from "lucide-react";
 
-const tabs = [
-  {
-    id: "historia",
-    label: "Nuestra Historia",
-    icon: History,
-    content: `Elite Engineering E.I.R.L. nació con una visión clara: elevar los estándares de la ingeniería a través de la calidad, la innovación y el compromiso real con cada proyecto. Desde nuestros inicios, entendimos que el progreso no solo consiste en ejecutar bien, sino también en compartir conocimiento para mejorar la industria.
+const timelineEvents = [
+  { year: "2014", title: "Fundación", description: "Nace Elite Engineering con visión de excelencia" },
+  { year: "2017", title: "Expansión BIM", description: "Adopción de metodologías BIM avanzadas" },
+  { year: "2020", title: "Innovación Digital", description: "Integración de VR, AR y vistas 360°" },
+  { year: "2024", title: "Liderazgo Regional", description: "Referentes en capacitación BIM" },
+];
 
-Por eso adoptamos metodologías BIM y herramientas digitales avanzadas no solo para optimizar proyectos, sino para enseñar, capacitar y aplicar con criterio técnico, generando valor real para nuestros clientes. Nuestro crecimiento ha sido resultado directo del trabajo bien hecho, de las entregas cumplidas y de una búsqueda constante de mejora.
-
-Integramos modelamiento BIM, diseño de viviendas, vistas 360°, Realidad Virtual y Realidad Aumentada para que nuestros clientes puedan visualizar, decidir y construir con confianza. Hoy, acompañamos a cada cliente como aliado estratégico, comprometidos a brindar soluciones técnicas claras, eficientes y de alto nivel.`,
-  },
-  {
-    id: "vision",
-    label: "Visión",
-    icon: Eye,
-    content: `Ser una empresa referente en ingeniería y metodología BIM, reconocida por la excelencia técnica, el cumplimiento de compromisos y la capacidad de innovación, impulsando proyectos de alto nivel y contribuyendo al crecimiento de la industria a través de la aplicación y enseñanza de nuevas tecnologías.`,
-  },
-  {
-    id: "mision",
-    label: "Misión",
-    icon: Target,
-    content: `Brindar soluciones de ingeniería de alta calidad mediante la implementación BIM, el modelamiento especializado, el diseño de viviendas y las tecnologías digitales avanzadas, cumpliendo cada compromiso con responsabilidad, precisión y enfoque en las necesidades del cliente.
-
-Promovemos la mejora continua y la enseñanza de nuevas metodologías, contribuyendo al desarrollo profesional de nuestros clientes y al progreso de la industria.`,
-  },
+const values = [
+  { icon: Target, title: "Misión", text: "Brindar soluciones de ingeniería de alta calidad mediante la implementación BIM, el modelamiento especializado, el diseño de viviendas y las tecnologías digitales avanzadas." },
+  { icon: Eye, title: "Visión", text: "Ser una empresa referente en ingeniería y metodología BIM, reconocida por la excelencia técnica, el cumplimiento de compromisos y la capacidad de innovación." },
 ];
 
 export function AboutSection() {
@@ -41,8 +26,8 @@ export function AboutSection() {
       className="relative py-24 lg:py-32 overflow-hidden"
     >
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-hero" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-card to-background" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -50,127 +35,127 @@ export function AboutSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <span className="text-accent font-medium text-sm uppercase tracking-widest mb-4 block">
+          <motion.span
+            className="inline-flex items-center gap-2 text-accent font-semibold text-sm uppercase tracking-[0.3em] mb-4"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ delay: 0.2 }}
+          >
+            <span className="w-8 h-px bg-accent" />
             Sobre Nosotros
-          </span>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-6">
-            Quiénes <span className="text-gradient-gold">Somos</span>
+            <span className="w-8 h-px bg-accent" />
+          </motion.span>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-6">
+            Quiénes <span className="text-gradient-cyan">Somos</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Elite Engineering E.I.R.L. es especializada en implementación BIM,
-            modelamiento BIM para expedientes técnicos, diseño de viviendas y
-            transformación digital en proyectos de ingeniería y construcción.
+          <p className="text-muted-foreground max-w-3xl mx-auto text-lg leading-relaxed">
+            Elite Engineering E.I.R.L. nació con una visión clara:{" "}
+            <span className="text-foreground font-medium">elevar los estándares de la ingeniería</span>{" "}
+            a través de la calidad, la innovación y el compromiso real con cada proyecto.
           </p>
         </motion.div>
 
-        {/* Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Left - Feature Cards */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-6"
-          >
-            {tabs.map((tab, index) => (
-              <motion.div
-                key={tab.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                className="bg-gradient-card rounded-2xl p-6 border border-border hover:border-accent/30 transition-all duration-300 group"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-xl bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-300">
-                    <tab.icon className="w-6 h-6" />
+        {/* Timeline */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="mb-20"
+        >
+          <div className="flex items-center gap-2 mb-8">
+            <History className="w-5 h-5 text-accent" />
+            <h3 className="font-display text-2xl font-bold text-foreground">Nuestra Historia</h3>
+          </div>
+
+          <div className="relative">
+            {/* Timeline Line */}
+            <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent hidden md:block" />
+
+            <div className="grid md:grid-cols-4 gap-6">
+              {timelineEvents.map((event, index) => (
+                <motion.div
+                  key={event.year}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.4 + index * 0.15 }}
+                  className="relative"
+                >
+                  <div className="glass-card-hover rounded-2xl p-6 text-center group">
+                    {/* Year Circle */}
+                    <div className="relative mx-auto w-16 h-16 rounded-full bg-gradient-to-br from-secondary to-accent flex items-center justify-center mb-4 group-hover:glow-cyan transition-all duration-300">
+                      <span className="font-display font-bold text-white text-sm">{event.year}</span>
+                    </div>
+                    <h4 className="font-display font-bold text-foreground mb-2 group-hover:text-accent transition-colors">
+                      {event.title}
+                    </h4>
+                    <p className="text-muted-foreground text-sm">{event.description}</p>
                   </div>
-                  <div className="flex-1">
-                    <h3 className="font-display text-xl font-semibold text-foreground mb-3 group-hover:text-accent transition-colors">
-                      {tab.label}
-                    </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
-                      {tab.content.substring(0, 200)}...
-                    </p>
-                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Mission & Vision */}
+        <div className="grid lg:grid-cols-2 gap-8">
+          {values.map((item, index) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, x: index === 0 ? -50 : 50 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.6 + index * 0.2 }}
+              className="glass-card-hover rounded-3xl p-8 group"
+            >
+              <div className="flex items-start gap-5">
+                <div className="p-4 rounded-2xl bg-gradient-to-br from-secondary/20 to-accent/20 group-hover:from-secondary group-hover:to-accent transition-all duration-500">
+                  <item.icon className="w-8 h-8 text-accent group-hover:text-white transition-colors" />
                 </div>
+                <div className="flex-1">
+                  <h3 className="font-display text-2xl font-bold text-foreground mb-4 group-hover:text-accent transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">{item.text}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Values List */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 1 }}
+          className="mt-16 glass-card rounded-3xl p-8 lg:p-10"
+        >
+          <div className="flex items-center gap-3 mb-8">
+            <Rocket className="w-6 h-6 text-accent" />
+            <h3 className="font-display text-2xl font-bold text-foreground">Nuestro Compromiso</h3>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              "Excelencia técnica en cada proyecto",
+              "Innovación con tecnologías VR/AR",
+              "Capacitación continua del equipo",
+              "Cumplimiento de estándares BIM",
+              "Trabajo colaborativo y transparente",
+              "Compromiso con el desarrollo sostenible",
+            ].map((item, index) => (
+              <motion.div
+                key={item}
+                initial={{ opacity: 0, x: -20 }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.4, delay: 1.2 + index * 0.1 }}
+                className="flex items-center gap-3 p-3 rounded-xl hover:bg-accent/5 transition-colors group"
+              >
+                <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 group-hover:scale-110 transition-transform" />
+                <span className="text-foreground text-sm group-hover:text-accent transition-colors">{item}</span>
               </motion.div>
             ))}
-          </motion.div>
-
-          {/* Right - Detailed Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="bg-gradient-card rounded-3xl p-8 lg:p-10 border border-border"
-          >
-            <div className="flex items-center gap-4 mb-8">
-              <div className="p-4 rounded-2xl bg-accent/10">
-                <Award className="w-8 h-8 text-accent" />
-              </div>
-              <div>
-                <h3 className="font-display text-2xl font-bold text-foreground">
-                  Nuestra Historia
-                </h3>
-                <p className="text-muted-foreground text-sm">
-                  Más de una década de excelencia
-                </p>
-              </div>
-            </div>
-
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
-              <p>
-                Elite Engineering E.I.R.L. nació con una visión clara:{" "}
-                <span className="text-foreground font-medium">
-                  elevar los estándares de la ingeniería
-                </span>{" "}
-                a través de la calidad, la innovación y el compromiso real con
-                cada proyecto.
-              </p>
-              <p>
-                Desde nuestros inicios, entendimos que el progreso no solo
-                consiste en ejecutar bien, sino también en{" "}
-                <span className="text-accent font-medium">
-                  compartir conocimiento
-                </span>{" "}
-                para mejorar la industria.
-              </p>
-              <p>
-                Integramos modelamiento BIM, diseño de viviendas, vistas 360°,
-                Realidad Virtual y Realidad Aumentada para que nuestros clientes
-                puedan{" "}
-                <span className="text-foreground font-medium">
-                  visualizar, decidir y construir con confianza
-                </span>
-                .
-              </p>
-            </div>
-
-            {/* Timeline Preview */}
-            <div className="mt-8 pt-8 border-t border-border">
-              <div className="flex items-center gap-6">
-                {["2014", "2018", "2021", "2024"].map((year, index) => (
-                  <div key={year} className="flex items-center gap-3">
-                    <div
-                      className={`w-3 h-3 rounded-full ${
-                        index === 3 ? "bg-accent" : "bg-muted-foreground/30"
-                      }`}
-                    />
-                    <span
-                      className={`text-sm font-medium ${
-                        index === 3 ? "text-accent" : "text-muted-foreground"
-                      }`}
-                    >
-                      {year}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

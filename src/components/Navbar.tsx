@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, MessageCircle, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
@@ -28,10 +28,10 @@ export function Navbar() {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-background/95 backdrop-blur-md shadow-lg border-b border-border"
+          ? "bg-background/80 backdrop-blur-xl shadow-lg shadow-black/20 border-b border-border/50"
           : "bg-transparent"
       }`}
     >
@@ -43,14 +43,17 @@ export function Navbar() {
             className="flex items-center gap-3 group"
             whileHover={{ scale: 1.02 }}
           >
-            <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center">
-              <span className="text-accent-foreground font-bold text-lg">E</span>
+            <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-secondary to-accent flex items-center justify-center overflow-hidden group-hover:glow-cyan transition-all duration-300">
+              <Building2 className="w-6 h-6 text-white" />
+              <div className="absolute inset-0 bg-gradient-to-t from-transparent to-white/20" />
             </div>
             <div className="flex flex-col">
-              <span className="font-display text-lg font-bold text-foreground group-hover:text-accent transition-colors">
-                Elite Engineering
+              <span className="font-display text-lg font-bold text-gradient-cyan">
+                ELITE ENGINEERING
               </span>
-              <span className="text-xs text-muted-foreground">E.I.R.L.</span>
+              <span className="text-[10px] text-muted-foreground tracking-[0.2em] uppercase">
+                Consultora y Capacitadora
+              </span>
             </div>
           </motion.a>
 
@@ -62,11 +65,11 @@ export function Navbar() {
                 href={link.href}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="text-sm font-medium text-muted-foreground hover:text-accent transition-colors relative group"
+                transition={{ delay: 0.1 + index * 0.1 }}
+                className="text-sm font-medium text-muted-foreground hover:text-accent transition-all duration-300 relative group"
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-accent to-secondary transition-all duration-300 group-hover:w-full" />
               </motion.a>
             ))}
           </div>
@@ -78,16 +81,16 @@ export function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold px-6 glow-gold">
-                <Phone className="w-4 h-4 mr-2" />
-                Contáctanos
+              <Button className="bg-gradient-to-r from-secondary to-accent hover:from-accent hover:to-secondary text-white font-semibold px-6 glow-cyan hover:glow-cyan-strong transition-all duration-300 group">
+                <MessageCircle className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform" />
+                WhatsApp
               </Button>
             </a>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 text-foreground"
+            className="lg:hidden p-2 text-foreground hover:text-accent transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -102,28 +105,29 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-card border-t border-border"
+            className="lg:hidden bg-card/95 backdrop-blur-xl border-t border-border"
           >
             <div className="container mx-auto px-4 py-6 space-y-4">
               {navLinks.map((link) => (
-                <a
+                <motion.a
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block py-2 text-foreground hover:text-accent transition-colors"
+                  className="block py-3 text-foreground hover:text-accent transition-colors border-b border-border/30"
+                  whileHover={{ x: 10 }}
                 >
                   {link.name}
-                </a>
+                </motion.a>
               ))}
               <a
                 href="https://wa.me/51955833613"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block"
+                className="block pt-4"
               >
-                <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
-                  <Phone className="w-4 h-4 mr-2" />
-                  Contáctanos
+                <Button className="w-full bg-gradient-to-r from-secondary to-accent text-white font-semibold">
+                  <MessageCircle className="w-4 h-4 mr-2" />
+                  Contáctanos por WhatsApp
                 </Button>
               </a>
             </div>
