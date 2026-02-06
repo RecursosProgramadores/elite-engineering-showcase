@@ -9,6 +9,7 @@ import {
   MessageCircle,
   ArrowUpRight,
   CheckCircle2,
+  Sparkles,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -39,14 +40,29 @@ const socialLinks = [
   {
     name: "Facebook",
     href: "https://web.facebook.com/p/Elite-Engineering-100048414673399/",
+    icon: (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M9.198 21.5h4v-8.01h3.604l.396-3.98h-4V7.5a1 1 0 0 1 1-1h3v-4h-3a5 5 0 0 0-5 5v2.01h-2l-.396 3.98h2.396v8.01Z" />
+      </svg>
+    ),
   },
   {
     name: "LinkedIn",
     href: "https://www.linkedin.com/company/103097936/",
+    icon: (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M6.94 5a2 2 0 1 1-4-.002 2 2 0 0 1 4 .002ZM7 8.48H3V21h4V8.48Zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-4 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.72-2.91l.04-1.68Z" />
+      </svg>
+    ),
   },
   {
     name: "Instagram",
     href: "https://www.instagram.com/igenierosdeelite",
+    icon: (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153a4.908 4.908 0 0 1 1.153 1.772c.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 0 1-1.153 1.772 4.915 4.915 0 0 1-1.772 1.153c-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 0 1-1.772-1.153 4.904 4.904 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.88 4.88 0 0 1 1.153-1.772A4.897 4.897 0 0 1 5.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2Zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm6.5-.25a1.25 1.25 0 0 0-2.5 0 1.25 1.25 0 0 0 2.5 0ZM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z" />
+      </svg>
+    ),
   },
 ];
 
@@ -68,8 +84,9 @@ export function ContactSection() {
       className="relative py-24 lg:py-32 overflow-hidden"
     >
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-hero" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-accent/5 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-background" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-accent/10 via-transparent to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -79,16 +96,23 @@ export function ContactSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-accent font-medium text-sm uppercase tracking-widest mb-4 block">
+          <motion.span
+            className="inline-flex items-center gap-2 text-accent font-semibold text-sm uppercase tracking-[0.3em] mb-4"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ delay: 0.2 }}
+          >
+            <Sparkles className="w-4 h-4" />
             Contacto
-          </span>
-          <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-6">
+            <Sparkles className="w-4 h-4" />
+          </motion.span>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-6">
             Hablemos de tu{" "}
-            <span className="text-gradient-gold">Proyecto</span>
+            <span className="text-gradient-cyan">Proyecto</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Estamos listos para escucharte y acompañarte en la transformación
-            digital de tus proyectos de ingeniería.
+          <p className="text-muted-foreground max-w-3xl mx-auto text-lg">
+            Estamos listos para acompañarte en la transformación digital
+            de tus proyectos de ingeniería.
           </p>
         </motion.div>
 
@@ -114,14 +138,14 @@ export function ContactSection() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                  className="flex items-center gap-4 p-5 rounded-xl bg-gradient-card border border-border hover:border-accent/30 transition-all group"
+                  className="flex items-center gap-4 p-5 rounded-2xl glass-card-hover group"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center group-hover:bg-accent transition-colors">
-                    <info.icon className="w-5 h-5 text-accent group-hover:text-accent-foreground transition-colors" />
+                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-secondary/20 to-accent/20 flex items-center justify-center group-hover:from-secondary group-hover:to-accent transition-all duration-500">
+                    <info.icon className="w-6 h-6 text-accent group-hover:text-white transition-colors" />
                   </div>
                   <div className="flex-1">
                     <p className="text-sm text-muted-foreground">{info.label}</p>
-                    <p className="font-medium text-foreground group-hover:text-accent transition-colors">
+                    <p className="font-semibold text-foreground group-hover:text-accent transition-colors">
                       {info.value}
                     </p>
                   </div>
@@ -135,15 +159,17 @@ export function ContactSection() {
               <h4 className="font-semibold text-foreground mb-4">Síguenos</h4>
               <div className="flex gap-3">
                 {socialLinks.map((social) => (
-                  <a
+                  <motion.a
                     key={social.name}
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 rounded-lg bg-muted hover:bg-accent hover:text-accent-foreground transition-colors text-sm font-medium"
+                    className="w-12 h-12 rounded-xl glass-card flex items-center justify-center text-muted-foreground hover:bg-accent hover:text-white transition-all duration-300 hover:glow-cyan"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    whileTap={{ scale: 0.95 }}
                   >
-                    {social.name}
-                  </a>
+                    {social.icon}
+                  </motion.a>
                 ))}
               </div>
             </div>
@@ -156,20 +182,20 @@ export function ContactSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="flex items-center gap-4 p-6 rounded-2xl bg-accent/10 border border-accent/30 hover:bg-accent/20 transition-all group"
+              className="flex items-center gap-4 p-6 rounded-2xl bg-gradient-to-r from-secondary/20 to-accent/20 border border-accent/30 hover:border-accent transition-all group glow-cyan"
             >
-              <div className="w-14 h-14 rounded-xl bg-accent flex items-center justify-center">
-                <MessageCircle className="w-7 h-7 text-accent-foreground" />
+              <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-secondary to-accent flex items-center justify-center">
+                <MessageCircle className="w-8 h-8 text-white" />
               </div>
               <div>
-                <p className="font-display font-bold text-foreground text-lg">
+                <p className="font-display font-bold text-foreground text-xl">
                   Chatea con nosotros
                 </p>
                 <p className="text-muted-foreground text-sm">
                   Respuesta rápida por WhatsApp
                 </p>
               </div>
-              <ArrowUpRight className="w-6 h-6 text-accent ml-auto" />
+              <ArrowUpRight className="w-6 h-6 text-accent ml-auto group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </motion.a>
           </motion.div>
 
@@ -179,7 +205,7 @@ export function ContactSection() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="bg-gradient-card rounded-3xl p-8 border border-border">
+            <div className="glass-card rounded-3xl p-8 lg:p-10">
               <h3 className="font-display text-2xl font-bold text-foreground mb-2">
                 Envíanos un mensaje
               </h3>
@@ -196,7 +222,7 @@ export function ContactSection() {
                     <Input
                       type="text"
                       placeholder="Tu nombre"
-                      className="bg-muted border-border focus:border-accent"
+                      className="bg-muted/50 border-border focus:border-accent focus:ring-accent/20"
                       required
                     />
                   </div>
@@ -207,7 +233,7 @@ export function ContactSection() {
                     <Input
                       type="text"
                       placeholder="Tu empresa"
-                      className="bg-muted border-border focus:border-accent"
+                      className="bg-muted/50 border-border focus:border-accent focus:ring-accent/20"
                     />
                   </div>
                 </div>
@@ -219,7 +245,7 @@ export function ContactSection() {
                   <Input
                     type="email"
                     placeholder="tu@email.com"
-                    className="bg-muted border-border focus:border-accent"
+                    className="bg-muted/50 border-border focus:border-accent focus:ring-accent/20"
                     required
                   />
                 </div>
@@ -231,7 +257,7 @@ export function ContactSection() {
                   <Input
                     type="tel"
                     placeholder="+51 999 999 999"
-                    className="bg-muted border-border focus:border-accent"
+                    className="bg-muted/50 border-border focus:border-accent focus:ring-accent/20"
                   />
                 </div>
 
@@ -241,7 +267,7 @@ export function ContactSection() {
                   </label>
                   <Textarea
                     placeholder="Cuéntanos sobre tu proyecto..."
-                    className="bg-muted border-border focus:border-accent min-h-[120px]"
+                    className="bg-muted/50 border-border focus:border-accent focus:ring-accent/20 min-h-[120px] resize-none"
                     required
                   />
                 </div>
@@ -249,7 +275,7 @@ export function ContactSection() {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold glow-gold"
+                  className="w-full bg-gradient-to-r from-secondary to-accent hover:from-accent hover:to-secondary text-white font-bold glow-cyan hover:glow-cyan-strong transition-all"
                   disabled={isSubmitted}
                 >
                   {isSubmitted ? (
