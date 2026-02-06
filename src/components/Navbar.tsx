@@ -7,6 +7,7 @@ const navLinks = [
   { name: "Inicio", href: "#inicio" },
   { name: "Nosotros", href: "#nosotros" },
   { name: "Servicios", href: "#servicios" },
+  { name: "Portafolio", href: "#portafolio" },
   { name: "Logros", href: "#logros" },
   { name: "Aula Virtual", href: "#aula-virtual" },
   { name: "Contacto", href: "#contacto" },
@@ -29,11 +30,10 @@ export function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
           ? "bg-background/80 backdrop-blur-xl shadow-lg shadow-black/20 border-b border-border/50"
           : "bg-transparent"
-      }`}
+        }`}
     >
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-20">

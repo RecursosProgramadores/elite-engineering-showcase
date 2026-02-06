@@ -22,66 +22,88 @@ const achievements = [
     title: "Capacitación Municipalidad de Cajamarca",
     description: "Formación en metodologías BIM para funcionarios públicos.",
     category: "Capacitación",
+    asset: "assets/trayectoria/municajamarca.jpeg",
+    type: "image"
   },
   {
     icon: Glasses,
     title: "Visualización con Realidad Virtual",
     description: "Experiencias VR para visualización inmersiva de proyectos.",
     category: "Tecnología",
+    asset: "assets/trayectoria/vizualizacionrealidadvirtual.mp4",
+    type: "video"
   },
   {
     icon: Sparkles,
     title: "Capacitación VR/AR en Proyectos BIM",
     description: "Entrenamiento especializado en realidad virtual y aumentada.",
     category: "Capacitación",
+    asset: "assets/trayectoria/Capacitacionbim.jpeg",
+    type: "image"
   },
   {
     icon: Building,
     title: "Charlas en Universidad Nacional de Cajamarca",
     description: "Compartiendo conocimientos con la comunidad universitaria.",
     category: "Academia",
+    asset: "assets/trayectoria/universidadcajamarca.jpeg",
+    type: "image"
   },
   {
     icon: FileCheck,
     title: "Implementación en Entidades Públicas",
     description: "Apoyo en flujos de trabajo BIM en instituciones gubernamentales.",
     category: "Consultoría",
+    asset: "assets/trayectoria/entidadespublicas.jpeg",
+    type: "image"
   },
   {
     icon: Plane,
     title: "Vuelos con Drones Colaborativos",
     description: "Levantamientos aerofotogramétricos en proyectos colaborativos.",
     category: "Tecnología",
+    asset: "assets/trayectoria/Vueloscondrones.jpeg",
+    type: "image"
   },
   {
     icon: Users,
     title: "Capacitación Empresarial",
     description: "Formación y adopción de BIM para empresas constructoras.",
     category: "Capacitación",
+    asset: "assets/trayectoria/implementaciondeempresas.jpeg",
+    type: "image"
   },
   {
     icon: Sparkles,
     title: "Superposición AR en Proyectos",
     description: "Realidad aumentada para visualización en obra.",
     category: "Tecnología",
+    asset: "assets/trayectoria/entidadespublicas.jpeg",
+    type: "image"
   },
   {
     icon: GraduationCap,
     title: "Capacitación Universitaria",
     description: "Formación de nuevas generaciones en universidades.",
     category: "Academia",
+    asset: "assets/trayectoria/capacitaciondiferentesuniversidades.jpeg",
+    type: "image"
   },
   {
     icon: Award,
     title: "Licencias CYPE Autorizadas",
     description: "Software original y licencias autorizadas CYPE.",
     category: "Calidad",
+    asset: "assets/trayectoria/cype.jpeg",
+    type: "image"
   },
   {
     icon: Building,
     title: "Apoyo UNC",
     description: "Talleres continuos con Universidad Nacional de Cajamarca.",
     category: "Academia",
+    asset: "assets/trayectoria/charlasenapoyo.jpeg",
+    type: "image"
   },
 ];
 
@@ -141,9 +163,8 @@ export function AchievementsSection() {
               <button
                 key={i}
                 onClick={() => setCurrentIndex(i)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  i === currentIndex ? "w-10 bg-accent glow-cyan" : "w-2 bg-border hover:bg-accent/50"
-                }`}
+                className={`h-2 rounded-full transition-all duration-300 ${i === currentIndex ? "w-10 bg-accent glow-cyan" : "w-2 bg-border hover:bg-accent/50"
+                  }`}
               />
             ))}
           </div>
@@ -182,27 +203,49 @@ export function AchievementsSection() {
                 transition={{ duration: 0.5, delay: index * 0.05 }}
                 className="flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
               >
-                <div className="group h-full glass-card-hover rounded-2xl p-6">
-                  {/* Header */}
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-semibold px-3 py-1.5 rounded-full bg-gradient-to-r from-accent/20 to-secondary/20 text-accent border border-accent/30">
-                      {achievement.category}
-                    </span>
+                <div className="group h-full glass-card-hover rounded-2xl overflow-hidden flex flex-col">
+                  {/* Media / Header Area */}
+                  <div className="relative h-48 overflow-hidden">
+                    {achievement.type === "video" ? (
+                      <video
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      >
+                        <source src={achievement.asset} type="video/mp4" />
+                      </video>
+                    ) : (
+                      <img
+                        src={achievement.asset}
+                        alt={achievement.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-60" />
+                    <div className="absolute top-4 left-4">
+                      <span className="text-[10px] font-bold px-3 py-1 rounded-full bg-accent/90 text-white uppercase tracking-wider backdrop-blur-sm border border-white/20">
+                        {achievement.category}
+                      </span>
+                    </div>
                     <motion.div
-                      className="w-12 h-12 rounded-xl bg-gradient-to-br from-secondary/20 to-accent/20 flex items-center justify-center group-hover:from-secondary group-hover:to-accent transition-all duration-500"
+                      className="absolute bottom-4 right-4 w-10 h-10 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white"
                       whileHover={{ scale: 1.1, rotate: 5 }}
                     >
-                      <achievement.icon className="w-6 h-6 text-accent group-hover:text-white transition-colors" />
+                      <achievement.icon className="w-5 h-5" />
                     </motion.div>
                   </div>
 
-                  {/* Content */}
-                  <h3 className="font-display text-lg font-bold text-foreground mb-3 group-hover:text-accent transition-colors">
-                    {achievement.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {achievement.description}
-                  </p>
+                  {/* Content Area */}
+                  <div className="p-6 flex-grow bg-card/30">
+                    <h3 className="font-display text-lg font-bold text-foreground mb-3 group-hover:text-accent transition-colors leading-tight">
+                      {achievement.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {achievement.description}
+                    </p>
+                  </div>
                 </div>
               </motion.div>
             ))}
