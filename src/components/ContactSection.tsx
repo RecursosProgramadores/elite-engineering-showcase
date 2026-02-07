@@ -81,12 +81,11 @@ export function ContactSection() {
     <section
       id="contacto"
       ref={ref}
-      className="relative py-24 lg:py-32 overflow-hidden"
+      className="relative py-24 lg:py-32 overflow-hidden bg-background"
     >
-      {/* Background */}
-      <div className="absolute inset-0 bg-background" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-accent/10 via-transparent to-transparent" />
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
+      {/* Background Decor */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -97,7 +96,7 @@ export function ContactSection() {
           className="text-center mb-16"
         >
           <motion.span
-            className="inline-flex items-center gap-2 text-accent font-semibold text-sm uppercase tracking-[0.3em] mb-4"
+            className="inline-flex items-center gap-2 text-primary font-semibold text-sm uppercase tracking-[0.3em] mb-4"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.2 }}
@@ -108,7 +107,7 @@ export function ContactSection() {
           </motion.span>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-6">
             Hablemos de tu{" "}
-            <span className="text-gradient-cyan">Proyecto</span>
+            <span className="text-gradient-orange">Proyecto</span>
           </h2>
           <p className="text-muted-foreground max-w-3xl mx-auto text-lg">
             Estamos listos para acompañarte en la transformación digital
@@ -138,18 +137,18 @@ export function ContactSection() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                  className="flex items-center gap-4 p-5 rounded-2xl glass-card-hover group"
+                  className="flex items-center gap-4 p-5 rounded-2xl bg-white border border-border/40 hover:border-primary/20 hover:shadow-lg transition-all duration-500 group"
                 >
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-secondary/20 to-accent/20 flex items-center justify-center group-hover:from-secondary group-hover:to-accent transition-all duration-500">
-                    <info.icon className="w-6 h-6 text-accent group-hover:text-white transition-colors" />
+                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-all duration-500">
+                    <info.icon className="w-6 h-6 text-primary group-hover:text-white transition-colors" />
                   </div>
                   <div className="flex-1">
                     <p className="text-sm text-muted-foreground">{info.label}</p>
-                    <p className="font-semibold text-foreground group-hover:text-accent transition-colors">
+                    <p className="font-semibold text-foreground group-hover:text-primary transition-colors">
                       {info.value}
                     </p>
                   </div>
-                  <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-accent transition-colors" />
+                  <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
                 </motion.a>
               ))}
             </div>
@@ -164,7 +163,7 @@ export function ContactSection() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-xl glass-card flex items-center justify-center text-muted-foreground hover:bg-accent hover:text-white transition-all duration-300 hover:glow-cyan"
+                    className="w-12 h-12 rounded-xl bg-white border border-border/40 flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white transition-all duration-300 shadow-sm hover:shadow-md hover:border-primary/20"
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -182,9 +181,9 @@ export function ContactSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="flex items-center gap-4 p-6 rounded-2xl bg-gradient-to-r from-secondary/20 to-accent/20 border border-accent/30 hover:border-accent transition-all group glow-cyan"
+              className="flex items-center gap-4 p-6 rounded-2xl bg-white border border-primary/20 hover:border-primary transition-all group shadow-lg glow-orange"
             >
-              <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-secondary to-accent flex items-center justify-center">
+              <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-orange-400 flex items-center justify-center shadow-lg">
                 <MessageCircle className="w-8 h-8 text-white" />
               </div>
               <div>
@@ -195,7 +194,7 @@ export function ContactSection() {
                   Respuesta rápida por WhatsApp
                 </p>
               </div>
-              <ArrowUpRight className="w-6 h-6 text-accent ml-auto group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              <ArrowUpRight className="w-6 h-6 text-primary ml-auto group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
             </motion.a>
           </motion.div>
 
@@ -205,7 +204,7 @@ export function ContactSection() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <div className="glass-card rounded-3xl p-8 lg:p-10">
+            <div className="bg-white border border-border/40 rounded-3xl p-8 lg:p-10 shadow-xl">
               <h3 className="font-display text-2xl font-bold text-foreground mb-2">
                 Envíanos un mensaje
               </h3>
@@ -222,7 +221,7 @@ export function ContactSection() {
                     <Input
                       type="text"
                       placeholder="Tu nombre"
-                      className="bg-muted/50 border-border focus:border-accent focus:ring-accent/20"
+                      className="bg-muted/30 border-border focus:border-primary focus:ring-primary/20"
                       required
                     />
                   </div>
@@ -233,7 +232,7 @@ export function ContactSection() {
                     <Input
                       type="text"
                       placeholder="Tu empresa"
-                      className="bg-muted/50 border-border focus:border-accent focus:ring-accent/20"
+                      className="bg-muted/30 border-border focus:border-primary focus:ring-primary/20"
                     />
                   </div>
                 </div>
@@ -245,7 +244,7 @@ export function ContactSection() {
                   <Input
                     type="email"
                     placeholder="tu@email.com"
-                    className="bg-muted/50 border-border focus:border-accent focus:ring-accent/20"
+                    className="bg-muted/30 border-border focus:border-primary focus:ring-primary/20"
                     required
                   />
                 </div>
@@ -257,7 +256,7 @@ export function ContactSection() {
                   <Input
                     type="tel"
                     placeholder="+51 999 999 999"
-                    className="bg-muted/50 border-border focus:border-accent focus:ring-accent/20"
+                    className="bg-muted/30 border-border focus:border-primary focus:ring-primary/20"
                   />
                 </div>
 
@@ -267,7 +266,7 @@ export function ContactSection() {
                   </label>
                   <Textarea
                     placeholder="Cuéntanos sobre tu proyecto..."
-                    className="bg-muted/50 border-border focus:border-accent focus:ring-accent/20 min-h-[120px] resize-none"
+                    className="bg-muted/30 border-border focus:border-primary focus:ring-primary/20 min-h-[120px] resize-none"
                     required
                   />
                 </div>
@@ -275,7 +274,7 @@ export function ContactSection() {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full bg-gradient-to-r from-secondary to-accent hover:from-accent hover:to-secondary text-white font-bold glow-cyan hover:glow-cyan-strong transition-all"
+                  className="w-full bg-primary hover:bg-orange-600 text-white font-bold shadow-lg glow-orange transition-all"
                   disabled={isSubmitted}
                 >
                   {isSubmitted ? (

@@ -117,8 +117,8 @@ export function PortfolioSection() {
     return (
         <section id="portafolio" ref={ref} className="relative py-24 lg:py-32 overflow-hidden bg-background">
             {/* Decorative background elements */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
-            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary/5 blur-[120px] rounded-full translate-y-1/2 -translate-x-1/2" />
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
+            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full translate-y-1/2 -translate-x-1/2" />
 
             <div className="container mx-auto px-4 lg:px-8 relative z-10">
                 <motion.div
@@ -128,17 +128,17 @@ export function PortfolioSection() {
                     className="text-center mb-16"
                 >
                     <motion.span
-                        className="inline-flex items-center gap-2 text-accent font-semibold text-sm uppercase tracking-[0.3em] mb-4"
+                        className="inline-flex items-center gap-2 text-primary font-semibold text-sm uppercase tracking-[0.3em] mb-4"
                         initial={{ opacity: 0 }}
                         animate={isInView ? { opacity: 1 } : {}}
                         transition={{ delay: 0.2 }}
                     >
-                        <span className="w-8 h-px bg-accent" />
+                        <span className="w-8 h-px bg-primary" />
                         Portafolio
-                        <span className="w-8 h-px bg-accent" />
+                        <span className="w-8 h-px bg-primary" />
                     </motion.span>
                     <h2 className="font-display text-4xl md:text-5xl font-black text-foreground mb-6">
-                        Proyectos <span className="text-gradient-cyan">Destacados</span>
+                        Proyectos <span className="text-gradient-orange">Destacados</span>
                     </h2>
                     <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
                         Explora nuestra trayectoria en implementación BIM y transformación digital.
@@ -154,8 +154,8 @@ export function PortfolioSection() {
                             onClick={() => setActiveCategory(category.id)}
                             variant={activeCategory === category.id ? "default" : "outline"}
                             className={`rounded-full px-6 transition-all duration-300 ${activeCategory === category.id
-                                ? "bg-accent text-accent-foreground hover:bg-accent/90 glow-cyan"
-                                : "border-border hover:border-accent hover:text-accent"
+                                ? "bg-primary text-white hover:bg-orange-600 shadow-md glow-orange"
+                                : "border-border text-foreground hover:border-primary hover:text-primary"
                                 }`}
                         >
                             <category.icon className="w-4 h-4 mr-2" />
@@ -180,7 +180,7 @@ export function PortfolioSection() {
                                 transition={{ duration: 0.4 }}
                                 className="group relative"
                             >
-                                <div className="glass-card-hover rounded-3xl overflow-hidden h-full flex flex-col">
+                                <div className="bg-white border border-border/40 rounded-3xl overflow-hidden h-full flex flex-col hover:shadow-2xl hover:border-primary/20 transition-all duration-500">
                                     {/* Image/Video Container */}
                                     <div className="relative aspect-[16/10] overflow-hidden bg-muted/20">
                                         {project.type === "video" ? (
@@ -201,17 +201,17 @@ export function PortfolioSection() {
                                             />
                                         )}
                                         {/* Overlay */}
-                                        <div className="absolute inset-0 bg-gradient-to-t from-background via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                                            <Button size="icon" className="rounded-full bg-accent text-white scale-0 group-hover:scale-100 transition-transform duration-500 delay-100">
+                                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                                            <Button size="icon" className="rounded-full bg-primary text-white scale-0 group-hover:scale-100 transition-transform duration-500 delay-100 glow-orange">
                                                 <Maximize2 className="w-5 h-5" />
                                             </Button>
-                                            <Button size="icon" className="rounded-full bg-secondary text-white scale-0 group-hover:scale-100 transition-transform duration-500 delay-200">
+                                            <Button size="icon" className="rounded-full bg-white text-primary scale-0 group-hover:scale-100 transition-transform duration-500 delay-200">
                                                 <ExternalLink className="w-5 h-5" />
                                             </Button>
                                         </div>
                                         {/* Category Tag */}
                                         <div className="absolute top-4 left-4">
-                                            <span className="px-3 py-1 rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-[10px] font-bold uppercase tracking-widest text-white">
+                                            <span className="px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-border text-[10px] font-bold uppercase tracking-widest text-primary">
                                                 {categories.find(c => c.id === project.category)?.label}
                                             </span>
                                         </div>
@@ -220,18 +220,18 @@ export function PortfolioSection() {
                                     {/* Content */}
                                     <div className="p-6 flex-1 flex flex-col">
                                         <div className="mb-2">
-                                            <h3 className="font-display text-xl font-bold text-foreground group-hover:text-accent transition-colors">
+                                            <h3 className="font-display text-xl font-bold text-foreground group-hover:text-primary transition-colors">
                                                 {project.title}
                                             </h3>
-                                            <p className="text-accent text-sm font-medium uppercase tracking-wider">
+                                            <p className="text-primary text-sm font-medium uppercase tracking-wider">
                                                 {project.subtitle}
                                             </p>
                                         </div>
                                         <p className="text-muted-foreground text-sm line-clamp-3 mb-6">
                                             {project.description}
                                         </p>
-                                        <div className="mt-auto pt-4 border-t border-border/50">
-                                            <Button variant="link" className="p-0 h-auto text-accent hover:text-secondary group/btn">
+                                        <div className="mt-auto pt-4 border-t border-border/10">
+                                            <Button variant="link" className="p-0 h-auto text-primary hover:text-orange-600 group/btn">
                                                 Ver Detalles
                                                 <motion.span className="ml-2 inline-block transition-transform group-hover/btn:translate-x-1">
                                                     →

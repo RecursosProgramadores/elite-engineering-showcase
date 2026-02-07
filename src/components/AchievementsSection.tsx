@@ -122,12 +122,11 @@ export function AchievementsSection() {
     <section
       id="logros"
       ref={ref}
-      className="relative py-24 lg:py-32 overflow-hidden"
+      className="relative py-24 lg:py-32 overflow-hidden bg-background"
     >
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-card via-background to-card" />
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-secondary/50 to-transparent" />
+      {/* Background Decor */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -138,7 +137,7 @@ export function AchievementsSection() {
           className="text-center mb-16"
         >
           <motion.span
-            className="inline-flex items-center gap-2 text-accent font-semibold text-sm uppercase tracking-[0.3em] mb-4"
+            className="inline-flex items-center gap-2 text-primary font-semibold text-sm uppercase tracking-[0.3em] mb-4"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.2 }}
@@ -149,7 +148,7 @@ export function AchievementsSection() {
           </motion.span>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-6">
             Trayectoria de{" "}
-            <span className="text-gradient-cyan">Excelencia</span>
+            <span className="text-gradient-orange">Excelencia</span>
           </h2>
           <p className="text-muted-foreground max-w-3xl mx-auto text-lg">
             Cada logro representa nuestro compromiso con la calidad y la innovación.
@@ -163,7 +162,7 @@ export function AchievementsSection() {
               <button
                 key={i}
                 onClick={() => setCurrentIndex(i)}
-                className={`h-2 rounded-full transition-all duration-300 ${i === currentIndex ? "w-10 bg-accent glow-cyan" : "w-2 bg-border hover:bg-accent/50"
+                className={`h-2 rounded-full transition-all duration-300 ${i === currentIndex ? "w-10 bg-primary glow-orange" : "w-2 bg-border hover:bg-primary/50"
                   }`}
               />
             ))}
@@ -173,7 +172,7 @@ export function AchievementsSection() {
               variant="outline"
               size="icon"
               onClick={prev}
-              className="border-border hover:border-accent hover:bg-accent/10 hover:text-accent"
+              className="border-border text-foreground hover:border-primary hover:bg-primary/5 hover:text-primary shadow-sm"
             >
               <ChevronLeft className="w-4 h-4" />
             </Button>
@@ -181,7 +180,7 @@ export function AchievementsSection() {
               variant="outline"
               size="icon"
               onClick={next}
-              className="border-border hover:border-accent hover:bg-accent/10 hover:text-accent"
+              className="border-border text-foreground hover:border-primary hover:bg-primary/5 hover:text-primary shadow-sm"
             >
               <ChevronRight className="w-4 h-4" />
             </Button>
@@ -203,7 +202,7 @@ export function AchievementsSection() {
                 transition={{ duration: 0.5, delay: index * 0.05 }}
                 className="flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
               >
-                <div className="group h-full glass-card-hover rounded-2xl overflow-hidden flex flex-col">
+                <div className="group h-full bg-white border border-border/40 rounded-2xl overflow-hidden flex flex-col hover:shadow-xl transition-all duration-500">
                   {/* Media / Header Area */}
                   <div className="relative h-48 overflow-hidden">
                     {achievement.type === "video" ? (
@@ -223,14 +222,14 @@ export function AchievementsSection() {
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-60" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-60" />
                     <div className="absolute top-4 left-4">
-                      <span className="text-[10px] font-bold px-3 py-1 rounded-full bg-accent/90 text-white uppercase tracking-wider backdrop-blur-sm border border-white/20">
+                      <span className="text-[10px] font-bold px-3 py-1 rounded-full bg-primary/90 text-white uppercase tracking-wider backdrop-blur-sm border border-white/20">
                         {achievement.category}
                       </span>
                     </div>
                     <motion.div
-                      className="absolute bottom-4 right-4 w-10 h-10 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white"
+                      className="absolute bottom-4 right-4 w-10 h-10 rounded-xl bg-white/90 backdrop-blur-md border border-border flex items-center justify-center text-primary shadow-lg"
                       whileHover={{ scale: 1.1, rotate: 5 }}
                     >
                       <achievement.icon className="w-5 h-5" />
@@ -238,8 +237,8 @@ export function AchievementsSection() {
                   </div>
 
                   {/* Content Area */}
-                  <div className="p-6 flex-grow bg-card/30">
-                    <h3 className="font-display text-lg font-bold text-foreground mb-3 group-hover:text-accent transition-colors leading-tight">
+                  <div className="p-6 flex-grow ">
+                    <h3 className="font-display text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors leading-tight">
                       {achievement.title}
                     </h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">
@@ -270,12 +269,12 @@ export function AchievementsSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-              className="glass-card rounded-2xl p-6 text-center group hover:glow-cyan transition-all duration-300"
+              className="bg-white border border-border/40 rounded-2xl p-6 text-center group hover:shadow-lg hover:border-primary/20 transition-all duration-300"
             >
-              <div className="text-3xl md:text-4xl font-display font-black text-gradient-cyan mb-2">
+              <div className="text-3xl md:text-4xl font-display font-black text-gradient-orange mb-2">
                 {stat.value}
               </div>
-              <div className="text-sm text-muted-foreground group-hover:text-accent transition-colors">
+              <div className="text-sm text-muted-foreground group-hover:text-primary transition-colors">
                 {stat.label}
               </div>
             </motion.div>

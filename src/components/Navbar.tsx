@@ -31,8 +31,8 @@ export function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-          ? "bg-background/80 backdrop-blur-xl shadow-lg shadow-black/20 border-b border-border/50"
-          : "bg-transparent"
+        ? "bg-white/95 backdrop-blur-xl shadow-md border-b border-border/50"
+        : "bg-transparent"
         }`}
     >
       <div className="container mx-auto px-4 lg:px-8">
@@ -43,12 +43,12 @@ export function Navbar() {
             className="flex items-center gap-3 group"
             whileHover={{ scale: 1.02 }}
           >
-            <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-secondary to-accent flex items-center justify-center overflow-hidden group-hover:glow-cyan transition-all duration-300">
+            <div className="relative w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-orange-400 flex items-center justify-center overflow-hidden group-hover:glow-orange transition-all duration-300">
               <Building2 className="w-6 h-6 text-white" />
               <div className="absolute inset-0 bg-gradient-to-t from-transparent to-white/20" />
             </div>
             <div className="flex flex-col">
-              <span className="font-display text-lg font-bold text-gradient-cyan">
+              <span className="font-display text-lg font-bold text-gradient-orange">
                 ELITE ENGINEERING
               </span>
               <span className="text-[10px] text-muted-foreground tracking-[0.2em] uppercase">
@@ -66,10 +66,10 @@ export function Navbar() {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 + index * 0.1 }}
-                className="text-sm font-medium text-muted-foreground hover:text-accent transition-all duration-300 relative group"
+                className="text-sm font-medium text-foreground/80 hover:text-primary transition-all duration-300 relative group"
               >
                 {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-accent to-secondary transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
               </motion.a>
             ))}
           </div>
@@ -81,7 +81,7 @@ export function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button className="bg-gradient-to-r from-secondary to-accent hover:from-accent hover:to-secondary text-white font-semibold px-6 glow-cyan hover:glow-cyan-strong transition-all duration-300 group">
+              <Button className="bg-primary hover:bg-orange-600 text-white font-semibold px-6 glow-orange hover:glow-orange-strong transition-all duration-300 group">
                 <MessageCircle className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform" />
                 WhatsApp
               </Button>
@@ -90,7 +90,7 @@ export function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 text-foreground hover:text-accent transition-colors"
+            className="lg:hidden p-2 text-foreground hover:text-primary transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -105,7 +105,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-card/95 backdrop-blur-xl border-t border-border"
+            className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-border"
           >
             <div className="container mx-auto px-4 py-6 space-y-4">
               {navLinks.map((link) => (
@@ -113,7 +113,7 @@ export function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block py-3 text-foreground hover:text-accent transition-colors border-b border-border/30"
+                  className="block py-3 text-foreground hover:text-primary transition-colors border-b border-border/30"
                   whileHover={{ x: 10 }}
                 >
                   {link.name}
@@ -125,7 +125,7 @@ export function Navbar() {
                 rel="noopener noreferrer"
                 className="block pt-4"
               >
-                <Button className="w-full bg-gradient-to-r from-secondary to-accent text-white font-semibold">
+                <Button className="w-full bg-primary text-white font-semibold">
                   <MessageCircle className="w-4 h-4 mr-2" />
                   Contáctanos por WhatsApp
                 </Button>

@@ -1,230 +1,266 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
 import {
-  BookOpen,
-  Video,
-  Award,
-  Users,
-  Clock,
-  ArrowRight,
   Play,
-  CheckCircle2,
-  Sparkles,
-  GraduationCap,
+  Star,
+  Clock,
+  ChevronLeft,
+  ChevronRight,
+  User,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  type CarouselApi,
+} from "@/components/ui/carousel";
 
-const features = [
-  {
-    icon: Video,
-    title: "Clases en Vivo",
-    description: "Contenido en tiempo real con expertos.",
-  },
-  {
-    icon: BookOpen,
-    title: "Material Descargable",
-    description: "Recursos y plantillas profesionales.",
-  },
-  {
-    icon: Award,
-    title: "Certificaciones",
-    description: "Certificados de formación BIM.",
-  },
-  {
-    icon: Users,
-    title: "Comunidad Activa",
-    description: "Red de profesionales BIM.",
-  },
+const categories = [
+  "Todas las categorías",
+  "BIM",
+  "Contratos NEC",
+  "Estructuras",
+  "Gestión 4.0",
 ];
 
 const courses = [
-  "Fundamentos BIM",
-  "Modelamiento Revit",
-  "Coordinación BIM",
-  "Realidad Virtual Aplicada",
-  "Gestión de Proyectos BIM",
+  {
+    id: 1,
+    title: "Civil 3D aplicado a proyectos viales",
+    instructor: "Luis Fernando Godoy Tejeda",
+    duration: "07:31 Hrs",
+    level: "Introductorio",
+    rating: 5.0,
+    price: 39.0,
+    oldPrice: 49.99,
+    image: "/curso/curso1.png",
+    category: "BIM",
+  },
+  {
+    id: 2,
+    title: "Navisworks Manage",
+    instructor: "Maycol Guerra Walde",
+    duration: "07:59 Hrs",
+    level: "Intermedio",
+    rating: 5.0,
+    price: 39.0,
+    oldPrice: 49.99,
+    image: "/curso/curso2.png",
+    category: "BIM",
+  },
+  {
+    id: 3,
+    title: "Modelado BIM con Tekla Structures: Concreto Armado",
+    instructor: "Diego Cáceres Araya",
+    duration: "10:46 Hrs",
+    level: "Avanzado",
+    rating: 5.0,
+    price: 49.0,
+    oldPrice: 59.99,
+    image: "/assets/carrousel/carrousel_3.png",
+    category: "Estructuras",
+  },
+  {
+    id: 4,
+    title: "Análisis y diseño de estructuras metálicas con CYPE3D",
+    instructor: "María Belén Arizaga Pino",
+    duration: "03:08 Hrs",
+    level: "Intermedio",
+    rating: 5.0,
+    price: 49.0,
+    oldPrice: 59.99,
+    image: "/assets/carrousel/carrousel_4.png",
+    category: "Estructuras",
+  },
+  {
+    id: 5,
+    title: "Implementación ISO 19650",
+    instructor: "Ing. Carlos Mendoza",
+    duration: "12:15 Hrs",
+    level: "Intermedio",
+    rating: 4.9,
+    price: 45.0,
+    oldPrice: 55.0,
+    image: "/assets/carrousel/carrousel.png",
+    category: "BIM",
+  },
 ];
 
 export function AulaVirtualSection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [activeCategory, setActiveCategory] = useState("Todas las categorías");
+  const [api, setApi] = useState<CarouselApi>();
+
+  const filteredCourses = activeCategory === "Todas las categorías"
+    ? courses
+    : courses.filter(c => c.category === activeCategory);
 
   return (
-    <section
-      id="aula-virtual"
-      ref={ref}
-      className="relative py-24 lg:py-32 overflow-hidden"
-    >
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-card to-background" />
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
+    <section id="aula-virtual" className="relative py-24 bg-background overflow-hidden">
+      {/* Background radial glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Left - Content */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8 }}
+        <div className="text-center mb-12">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="font-display text-3xl md:text-5xl font-black text-foreground max-w-4xl mx-auto leading-tight"
           >
-            <motion.span
-              className="inline-flex items-center gap-2 text-accent font-semibold text-sm uppercase tracking-[0.3em] mb-4"
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ delay: 0.2 }}
-            >
-              <GraduationCap className="w-4 h-4" />
-              Próximamente
-            </motion.span>
-            <h2 className="font-display text-4xl md:text-5xl font-black text-foreground mb-6">
-              Aula <span className="text-gradient-cyan">Virtual</span>
-            </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-              Lleva tu formación BIM al siguiente nivel con nuestra plataforma de
-              aprendizaje en línea. Cursos diseñados por expertos para
-              profesionales que buscan dominar las metodologías más avanzadas.
-            </p>
+            Estudia desde cero y especialízate en áreas de la <span className="text-gradient-orange">construcción 4.0</span>
+          </motion.h2>
+        </div>
 
-            {/* Feature Grid */}
-            <div className="grid sm:grid-cols-2 gap-4 mb-8">
-              {features.map((feature, index) => (
-                <motion.div
-                  key={feature.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                  className="flex items-start gap-3 p-4 rounded-xl glass-card group hover:border-accent/30 transition-all"
-                >
-                  <div className="p-2 rounded-lg bg-accent/10 group-hover:bg-accent transition-colors">
-                    <feature.icon className="w-5 h-5 text-accent group-hover:text-white transition-colors" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground text-sm mb-1 group-hover:text-accent transition-colors">
-                      {feature.title}
-                    </h4>
-                    <p className="text-muted-foreground text-xs">
-                      {feature.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* CTA */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-secondary to-accent hover:from-accent hover:to-secondary text-white font-bold glow-cyan hover:glow-cyan-strong transition-all"
+        {/* Categories Bar */}
+        <div className="relative mb-12">
+          <div className="flex items-center gap-3 overflow-x-auto pb-4 scrollbar-hide no-scrollbar snap-x">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 whitespace-nowrap snap-start border ${activeCategory === cat
+                  ? "bg-primary border-primary text-white shadow-md"
+                  : "bg-white border-border text-muted-foreground hover:bg-muted hover:border-border/60"
+                  }`}
               >
-                <Clock className="w-4 h-4 mr-2" />
-                Notificarme al Lanzamiento
-              </Button>
-              <span className="text-sm text-muted-foreground">
-                Sé el primero en acceder
-              </span>
-            </div>
-          </motion.div>
+                {cat}
+              </button>
+            ))}
+          </div>
+        </div>
 
-          {/* Right - Preview Card */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
+        {/* Course Carousel */}
+        <div className="relative group/carousel">
+          <Carousel
+            setApi={setApi}
+            opts={{
+              align: "start",
+              loop: false,
+            }}
+            className="w-full"
           >
-            <div className="relative glass-card rounded-3xl p-8 overflow-hidden">
-              {/* Decorative glow */}
-              <div className="absolute top-0 right-0 w-40 h-40 bg-accent/20 rounded-full blur-[80px]" />
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-secondary/20 rounded-full blur-[60px]" />
-
-              {/* Header */}
-              <div className="relative z-10 flex items-center justify-between mb-8">
-                <div className="flex items-center gap-3">
-                  <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-secondary to-accent flex items-center justify-center glow-cyan">
-                    <BookOpen className="w-7 h-7 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-display font-bold text-foreground text-lg">
-                      Elite Academy
-                    </h4>
-                    <p className="text-sm text-muted-foreground">
-                      Plataforma BIM
-                    </p>
-                  </div>
-                </div>
-                <div className="px-4 py-1.5 rounded-full bg-gradient-to-r from-accent/20 to-secondary/20 text-accent text-xs font-bold border border-accent/30 animate-pulse">
-                  Coming Soon
-                </div>
-              </div>
-
-              {/* Video Preview */}
-              <motion.div
-                className="relative z-10 aspect-video rounded-2xl overflow-hidden group cursor-pointer mb-6"
-                whileHover={{ scale: 1.02 }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-secondary/60 via-primary/70 to-background/90" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <motion.div
-                    className="w-20 h-20 rounded-full bg-gradient-to-br from-accent to-secondary flex items-center justify-center glow-cyan-strong"
-                    whileHover={{ scale: 1.15 }}
-                    animate={{ scale: [1, 1.05, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
+            <CarouselContent className="-ml-4">
+              <AnimatePresence mode="popLayout">
+                {filteredCourses.map((course) => (
+                  <CarouselItem
+                    key={course.id}
+                    className="pl-4 md:basis-1/2 lg:basis-1/3 xl:basis-1/4"
                   >
-                    <Play className="w-8 h-8 text-white ml-1" />
-                  </motion.div>
-                </div>
-                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white text-sm">
-                  <span className="flex items-center gap-2">
-                    <Sparkles className="w-4 h-4" />
-                    Vista previa del curso
-                  </span>
-                  <span className="flex items-center gap-1 bg-black/30 px-2 py-1 rounded">
-                    <Clock className="w-3 h-3" />
-                    2:30
-                  </span>
-                </div>
-              </motion.div>
-
-              {/* Course List */}
-              <div className="relative z-10">
-                <h5 className="font-semibold text-foreground mb-4 text-sm flex items-center gap-2">
-                  <Award className="w-4 h-4 text-accent" />
-                  Cursos Disponibles
-                </h5>
-                <div className="space-y-2">
-                  {courses.map((course, index) => (
                     <motion.div
-                      key={course}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={isInView ? { opacity: 1, x: 0 } : {}}
-                      transition={{ duration: 0.3, delay: 0.6 + index * 0.1 }}
-                      className="flex items-center gap-3 p-3 rounded-xl bg-muted/30 hover:bg-accent/10 transition-colors group cursor-pointer"
+                      layout
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.9 }}
+                      transition={{ duration: 0.4 }}
+                      className="h-full bg-white border border-border/40 rounded-2xl overflow-hidden hover:border-primary/20 hover:shadow-xl transition-all duration-500 group"
                     >
-                      <CheckCircle2 className="w-4 h-4 text-accent" />
-                      <span className="text-sm text-foreground group-hover:text-accent transition-colors flex-1">
-                        {course}
-                      </span>
-                      <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-accent group-hover:translate-x-1 transition-all" />
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </div>
+                      {/* Course Image/Preview */}
+                      <div className="relative aspect-video overflow-hidden">
+                        <img
+                          src={course.image}
+                          alt={course.title}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        />
+                        <div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center glow-orange">
+                            <Play className="w-6 h-6 text-white fill-white ml-1" />
+                          </div>
+                        </div>
+                        <div className="absolute top-3 left-3 px-3 py-1 rounded-md bg-white/90 backdrop-blur-md border border-border/10">
+                          <span className="text-[10px] font-bold text-primary uppercase tracking-wider">{course.category}</span>
+                        </div>
+                      </div>
 
-            {/* Floating Badge */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: 1 }}
-              className="absolute -bottom-4 -right-4 lg:-right-8 bg-gradient-to-r from-secondary to-accent text-white px-6 py-3 rounded-xl shadow-lg glow-cyan"
-            >
-              <div className="flex items-center gap-2">
-                <Users className="w-5 h-5" />
-                <span className="font-bold">+500 Interesados</span>
-              </div>
-            </motion.div>
-          </motion.div>
+                      {/* Course Info */}
+                      <div className="p-5 flex flex-col h-fit">
+                        {/* Instructor */}
+                        <div className="flex items-center gap-2 mb-4">
+                          <div className="w-6 h-6 rounded-full bg-muted border border-border flex items-center justify-center shrink-0">
+                            <User className="w-3.5 h-3.5 text-muted-foreground" />
+                          </div>
+                          <span className="text-[11px] text-muted-foreground truncate font-medium">
+                            {course.instructor}
+                          </span>
+                        </div>
+
+                        <h3 className="text-foreground font-bold text-base mb-3 line-clamp-2 h-12 leading-snug group-hover:text-primary transition-colors">
+                          {course.title}
+                        </h3>
+
+                        {/* Meta Info */}
+                        <div className="flex items-center gap-3 text-muted-foreground text-xs mb-4">
+                          <div className="flex items-center gap-1.5">
+                            <Clock className="w-3.5 h-3.5" />
+                            {course.duration}
+                          </div>
+                          <div className="w-1 h-1 rounded-full bg-border" />
+                          <span>{course.level}</span>
+                        </div>
+
+                        {/* Rating */}
+                        <div className="flex items-center gap-2 mb-6">
+                          <div className="flex items-center gap-0.5">
+                            {[...Array(5)].map((_, i) => (
+                              <Star key={i} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-500" />
+                            ))}
+                          </div>
+                          <span className="text-xs font-bold text-yellow-600">{course.rating.toFixed(1)}</span>
+                        </div>
+
+                        {/* Price & Action */}
+                        <div className="mt-auto pt-4 border-t border-border/10 flex items-center justify-between">
+                          <div className="flex flex-col">
+                            <span className="text-[10px] text-muted-foreground/60 line-through">USD {course.oldPrice.toFixed(2)}</span>
+                            <span className="text-lg font-black text-foreground">USD {course.price.toFixed(2)}</span>
+                          </div>
+                          <Button
+                            className="bg-primary hover:bg-orange-600 text-white font-bold px-4 py-2 text-xs rounded-lg transition-all"
+                          >
+                            Comprar
+                          </Button>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </CarouselItem>
+                ))}
+              </AnimatePresence>
+            </CarouselContent>
+
+            {/* Custom Navigation Arrows */}
+            <div className="absolute top-1/2 -left-4 -translate-y-1/2 z-20 opacity-0 group-hover/carousel:opacity-100 transition-opacity">
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={() => api?.scrollPrev()}
+                className="h-12 w-12 rounded-full border-border bg-white text-foreground hover:bg-primary hover:text-white transition-all shadow-md"
+              >
+                <ChevronLeft className="h-6 w-6" />
+              </Button>
+            </div>
+            <div className="absolute top-1/2 -right-4 -translate-y-1/2 z-20 opacity-0 group-hover/carousel:opacity-100 transition-opacity">
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={() => api?.scrollNext()}
+                className="h-12 w-12 rounded-full border-border bg-white text-foreground hover:bg-primary hover:text-white transition-all shadow-md"
+              >
+                <ChevronRight className="h-6 w-6" />
+              </Button>
+            </div>
+          </Carousel>
+        </div>
+
+        {/* View All / More Actions */}
+        <div className="mt-16 text-center">
+          <Button
+            variant="outline"
+            className="border-primary/20 text-primary hover:text-white hover:bg-primary px-8 h-14 text-sm tracking-widest uppercase font-bold transition-all"
+          >
+            Explorar todo el catálogo
+          </Button>
         </div>
       </div>
     </section>

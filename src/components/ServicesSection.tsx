@@ -89,17 +89,16 @@ export function ServicesSection() {
     <section
       id="servicios"
       ref={ref}
-      className="relative py-24 lg:py-32 overflow-hidden"
+      className="relative py-24 lg:py-32 overflow-hidden bg-[#f8fafc]"
     >
-      {/* Background */}
-      <div className="absolute inset-0 bg-background" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-accent/5 via-transparent to-transparent" />
+      {/* Background Decor */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />
 
       {/* Decorative grid */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.05]"
         style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, hsl(195 100% 50%) 1px, transparent 0)`,
+          backgroundImage: `radial-gradient(circle at 1px 1px, hsl(4 82% 56%) 1px, transparent 0)`,
           backgroundSize: "50px 50px",
         }}
       />
@@ -113,7 +112,7 @@ export function ServicesSection() {
           className="text-center mb-20"
         >
           <motion.span
-            className="inline-flex items-center gap-2 text-accent font-semibold text-sm uppercase tracking-[0.3em] mb-4"
+            className="inline-flex items-center gap-2 text-primary font-semibold text-sm uppercase tracking-[0.3em] mb-4"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.2 }}
@@ -123,7 +122,7 @@ export function ServicesSection() {
             <Sparkles className="w-4 h-4" />
           </motion.span>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-6">
-            Soluciones <span className="text-gradient-cyan">Integrales</span>
+            Soluciones <span className="text-gradient-orange">Integrales</span>
           </h2>
           <p className="text-muted-foreground max-w-3xl mx-auto text-lg leading-relaxed">
             Ofrecemos un ecosistema completo de servicios BIM y tecnologías
@@ -141,17 +140,17 @@ export function ServicesSection() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="group relative"
             >
-              <div className="h-full glass-card rounded-2xl p-6 transition-all duration-500 hover:border-accent/50 hover:shadow-[0_0_30px_rgba(0,191,255,0.15)]">
+              <div className="h-full bg-white border border-border/40 rounded-2xl p-6 transition-all duration-500 hover:border-primary/20 hover:shadow-xl">
                 {/* Icon */}
                 <motion.div
-                  className={`w-14 h-14 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500`}
+                  className={`w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-orange-400 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 glow-orange`}
                   whileHover={{ rotate: 6 }}
                 >
                   <service.icon className="w-7 h-7 text-white" />
                 </motion.div>
 
                 {/* Content */}
-                <h3 className="font-display text-lg font-bold text-foreground mb-3 group-hover:text-accent transition-colors">
+                <h3 className="font-display text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
                   {service.title}
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-4">
@@ -163,7 +162,7 @@ export function ServicesSection() {
                   {service.features.map((feature) => (
                     <span
                       key={feature}
-                      className="text-xs px-2.5 py-1 rounded-full bg-accent/10 text-accent border border-accent/20"
+                      className="text-[10px] px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/20 font-bold uppercase"
                     >
                       {feature}
                     </span>
@@ -172,8 +171,8 @@ export function ServicesSection() {
 
                 {/* Arrow Link */}
                 <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
-                  <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center">
-                    <ArrowUpRight className="w-4 h-4 text-accent" />
+                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                    <ArrowUpRight className="w-4 h-4 text-primary" />
                   </div>
                 </div>
               </div>
@@ -193,7 +192,7 @@ export function ServicesSection() {
           </p>
           <a
             href="#contacto"
-            className="inline-flex items-center gap-2 text-accent font-semibold hover:gap-3 transition-all group"
+            className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all group"
           >
             Conversemos sobre tus necesidades
             <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />

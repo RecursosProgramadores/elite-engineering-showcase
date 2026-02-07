@@ -58,21 +58,21 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative bg-card border-t border-border">
-      {/* Gradient line */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
+    <footer className="relative bg-white border-t border-border/40">
+      {/* Top Decor line */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
 
       {/* Main Footer */}
       <div className="container mx-auto px-4 lg:px-8 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <a href="#inicio" className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-secondary to-accent flex items-center justify-center glow-cyan">
+            <a href="#inicio" className="flex items-center gap-3 mb-6 group">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-orange-400 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
                 <Building2 className="w-6 h-6 text-white" />
               </div>
               <div className="flex flex-col">
-                <span className="font-display text-lg font-bold text-gradient-cyan">
+                <span className="font-display text-lg font-bold text-gradient-orange">
                   ELITE ENGINEERING
                 </span>
                 <span className="text-[10px] text-muted-foreground tracking-[0.2em] uppercase">
@@ -87,17 +87,23 @@ export function Footer() {
             </p>
 
             {/* Contact Info */}
-            <div className="space-y-2 mb-6">
-              <a href="tel:+51955833613" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors">
-                <Phone className="w-4 h-4" />
+            <div className="space-y-3 mb-6">
+              <a href="tel:+51955833613" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors">
+                <div className="w-8 h-8 rounded-lg bg-muted flex items-center justify-center">
+                  <Phone className="w-4 h-4" />
+                </div>
                 955 833 613 / 942 015 745
               </a>
-              <a href="mailto:gerencia@ingenierodeelite.com" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-accent transition-colors">
-                <Mail className="w-4 h-4" />
+              <a href="mailto:gerencia@ingenierodeelite.com" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors">
+                <div className="w-8 h-8 rounded-lg bg-muted flex items-center justify-center">
+                  <Mail className="w-4 h-4" />
+                </div>
                 gerencia@ingenierodeelite.com
               </a>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <MapPin className="w-4 h-4" />
+              <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                <div className="w-8 h-8 rounded-lg bg-muted flex items-center justify-center">
+                  <MapPin className="w-4 h-4" />
+                </div>
                 Jirón El Inca 537, Cajamarca
               </div>
             </div>
@@ -110,7 +116,7 @@ export function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center text-muted-foreground hover:bg-accent hover:text-white transition-all duration-300"
+                  className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white transition-all duration-300"
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -128,7 +134,7 @@ export function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-muted-foreground text-sm hover:text-accent transition-colors"
+                    className="text-muted-foreground text-sm hover:text-primary transition-colors inline-block"
                   >
                     {link.name}
                   </a>
@@ -144,7 +150,7 @@ export function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-muted-foreground text-sm hover:text-accent transition-colors"
+                    className="text-muted-foreground text-sm hover:text-primary transition-colors inline-block"
                   >
                     {link.name}
                   </a>
@@ -160,7 +166,7 @@ export function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-muted-foreground text-sm hover:text-accent transition-colors"
+                    className="text-muted-foreground text-sm hover:text-primary transition-colors inline-block"
                   >
                     {link.name}
                   </a>
@@ -172,7 +178,7 @@ export function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-border">
+      <div className="border-t border-border/40">
         <div className="container mx-auto px-4 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-muted-foreground text-sm">
@@ -182,13 +188,13 @@ export function Footer() {
             <div className="flex items-center gap-6">
               <a
                 href="#"
-                className="text-muted-foreground text-sm hover:text-accent transition-colors"
+                className="text-muted-foreground text-sm hover:text-primary transition-colors"
               >
                 Términos y Condiciones
               </a>
               <a
                 href="#"
-                className="text-muted-foreground text-sm hover:text-accent transition-colors"
+                className="text-muted-foreground text-sm hover:text-primary transition-colors"
               >
                 Política de Privacidad
               </a>
@@ -204,7 +210,7 @@ export function Footer() {
         animate={{ opacity: 1, y: 0 }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        className="fixed bottom-24 right-8 w-12 h-12 rounded-xl bg-gradient-to-br from-secondary to-accent text-white flex items-center justify-center shadow-lg glow-cyan z-50"
+        className="fixed bottom-24 right-8 w-12 h-12 rounded-xl bg-primary text-white flex items-center justify-center shadow-lg glow-orange z-50 hover:bg-orange-600 transition-colors"
       >
         <ArrowUp className="w-5 h-5" />
       </motion.button>
