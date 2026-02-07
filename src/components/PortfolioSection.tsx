@@ -150,8 +150,8 @@ export function PortfolioSection() {
                             key={category.id}
                             onClick={() => setActiveCategory(category.id)}
                             className={`px-8 py-3 rounded-2xl font-black text-sm uppercase tracking-widest transition-all duration-500 flex items-center gap-3 ${activeCategory === category.id
-                                    ? "bg-[#031432] text-white shadow-2xl scale-105"
-                                    : "bg-white/50 text-slate-400 hover:text-[#031432] border border-slate-100"
+                                ? "bg-[#031432] text-white shadow-2xl scale-105"
+                                : "bg-white/50 text-slate-400 hover:text-[#031432] border border-slate-100"
                                 }`}
                         >
                             <category.icon className={`w-4 h-4 ${activeCategory === category.id ? 'text-primary' : ''}`} />
@@ -198,12 +198,12 @@ export function PortfolioSection() {
                                         )}
 
                                         {/* Floating Content Overlay */}
-                                        <div className="absolute inset-0 p-10 flex flex-col justify-end translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+                                        <div className="absolute inset-0 p-6 md:p-10 flex flex-col justify-end translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
                                             <div className="space-y-4">
                                                 <span className="text-primary font-black uppercase tracking-[0.3em] text-[10px] bg-primary/10 px-3 py-1 rounded-full border border-primary/20">
                                                     {categories.find(c => c.id === project.category)?.label}
                                                 </span>
-                                                <h3 className="text-3xl font-black text-white leading-tight">
+                                                <h3 className="text-2xl md:text-3xl font-black text-white leading-tight">
                                                     {project.title}
                                                 </h3>
                                                 <p className="text-white/60 text-sm font-medium line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">

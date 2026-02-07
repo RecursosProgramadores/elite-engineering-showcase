@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { Target, Eye, History, Rocket, CheckCircle2 } from "lucide-react";
 
 const timelineEvents = [
-  { year: "git", title: "Fundación", description: "Nace Elite Engineering con visión de excelencia" },
+  { year: "2014", title: "Fundación", description: "Nace Elite Engineering con visión de excelencia" },
   { year: "2017", title: "Expansión BIM", description: "Adopción de metodologías BIM avanzadas" },
   { year: "2020", title: "Innovación Digital", description: "Integración de VR, AR y vistas 360°" },
   { year: "2024", title: "Liderazgo Regional", description: "Referentes en capacitación BIM" },
@@ -30,7 +30,7 @@ export function AboutSection() {
       <div className="absolute top-1/2 left-0 w-72 h-72 bg-primary/5 blur-[120px] rounded-full" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-24 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
           {/* Visual Side */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -60,7 +60,7 @@ export function AboutSection() {
               initial={{ y: 20, opacity: 0 }}
               animate={isInView ? { y: 0, opacity: 1 } : {}}
               transition={{ delay: 0.5 }}
-              className="absolute -bottom-10 -right-10 glass-modern p-10 rounded-[2.5rem] shadow-2xl hidden md:block"
+              className="absolute -bottom-6 -right-4 md:-bottom-10 md:-right-10 glass-modern p-6 md:p-10 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl z-20"
             >
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center">
@@ -116,8 +116,8 @@ export function AboutSection() {
         </div>
 
         {/* Timeline Overhaul */}
-        <div className="mt-32 pt-24 border-t border-slate-100">
-          <div className="grid md:grid-cols-4 gap-12">
+        <div className="mt-20 lg:mt-32 pt-16 lg:pt-24 border-t border-slate-100">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
             {timelineEvents.map((event, idx) => (
               <motion.div
                 key={event.year}

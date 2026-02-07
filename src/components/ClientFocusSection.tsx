@@ -71,7 +71,7 @@ export function ClientFocusSection() {
           >
             Foco de Impacto
           </motion.span>
-          <h2 className="font-display text-5xl md:text-8xl font-black text-[#031432] mb-10 leading-[0.9] tracking-tighter">
+          <h2 className="font-display text-4xl md:text-8xl font-black text-[#031432] mb-10 leading-[0.9] tracking-tighter">
             Ecosistema de <br />
             <span className="text-gradient-orange">Soluciones</span>
           </h2>
@@ -94,7 +94,7 @@ export function ClientFocusSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                className="group glass-modern bg-white/80 p-10 rounded-[2.5rem] border-none shadow-xl hover:shadow-2xl transition-all duration-700"
+                className="group glass-modern bg-white/80 p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] border-none shadow-xl hover:shadow-2xl transition-all duration-700"
               >
                 <div className="w-16 h-16 rounded-2xl bg-[#031432] flex items-center justify-center mb-8 group-hover:bg-primary group-hover:glow-orange-strong transition-all duration-500 shadow-xl">
                   <profile.icon className="w-8 h-8 text-white" />
@@ -116,7 +116,7 @@ export function ClientFocusSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="space-y-10"
           >
-            <div className="bg-[#031432] p-12 lg:p-16 rounded-[3.5rem] shadow-2xl relative overflow-hidden group">
+            <div className="bg-[#031432] p-8 md:p-12 lg:p-16 rounded-[2.5rem] md:rounded-[3.5rem] shadow-2xl relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 blur-[80px] rounded-full -mr-20 -mt-20 group-hover:scale-150 transition-transform duration-1000" />
 
               <h3 className="text-3xl font-black text-white mb-10">La Ventaja <span className="text-gradient-orange">Elite</span></h3>

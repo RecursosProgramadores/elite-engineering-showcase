@@ -134,7 +134,7 @@ export function HeroSection() {
                     Líderes en Implementación BIM
                   </motion.div>
 
-                  <h1 className="hero-heading text-white mb-8">
+                  <h1 className="hero-heading text-white mb-6 md:mb-8 leading-[0.85] md:leading-[0.9]">
                     Ingeniería de <br />
                     <span className="text-gradient-orange">élite</span>
                     <span className="text-primary">.</span>

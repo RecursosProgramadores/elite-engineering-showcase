@@ -140,7 +140,7 @@ export function AchievementsSection() {
           >
             Trayectoria de Élite
           </motion.span>
-          <h2 className="font-display text-5xl md:text-8xl font-black text-[#031432] mb-10 leading-[0.9] tracking-tighter">
+          <h2 className="font-display text-4xl md:text-8xl font-black text-[#031432] mb-10 leading-[0.9] tracking-tighter">
             Impacto que <br />
             <span className="text-gradient-orange">Trasciende</span>
           </h2>
@@ -194,7 +194,7 @@ export function AchievementsSection() {
                   key={index}
                   className="flex-shrink-0 w-full md:w-[calc(50%-20px)] lg:w-[calc(33.333%-27px)]"
                 >
-                  <div className="group h-[600px] glass-modern rounded-[3rem] bg-white border-none shadow-2xl relative overflow-hidden transition-all duration-700 hover:-translate-y-4">
+                  <div className="group h-[500px] md:h-[600px] glass-modern rounded-[3rem] bg-white border-none shadow-2xl relative overflow-hidden transition-all duration-700 hover:-translate-y-4">
                     {/* Immersive Media */}
                     <div className="absolute inset-0">
                       {achievement.type === "video" ? (
@@ -218,11 +218,11 @@ export function AchievementsSection() {
                     </div>
 
                     {/* Elite Metadata */}
-                    <div className="absolute inset-0 p-12 flex flex-col justify-end">
+                    <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-end">
                       <span className="inline-flex w-fit px-4 py-1.5 rounded-full bg-primary text-white text-[10px] font-black uppercase tracking-[0.2em] mb-6 shadow-lg">
                         {achievement.category}
                       </span>
-                      <h3 className="text-3xl font-black text-white mb-6 leading-tight group-hover:text-primary transition-colors">
+                      <h3 className="text-2xl md:text-3xl font-black text-white mb-6 leading-tight group-hover:text-primary transition-colors">
                         {achievement.title}
                       </h3>
                       <p className="text-slate-300 font-medium leading-relaxed opacity-0 group-hover:opacity-100 translate-y-8 group-hover:translate-y-0 transition-all duration-500">
@@ -250,7 +250,7 @@ export function AchievementsSection() {
               { value: "100%", label: "Trazabilidad" },
             ].map((stat, idx) => (
               <div key={idx} className="flex flex-col gap-2">
-                <span className="text-5xl lg:text-7xl font-black text-gradient-orange">{stat.value}</span>
+                <span className="text-4xl md:text-5xl lg:text-7xl font-black text-gradient-orange">{stat.value}</span>
                 <span className="text-[10px] uppercase tracking-[0.4em] font-black text-slate-400">{stat.label}</span>
               </div>
             ))}

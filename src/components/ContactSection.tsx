@@ -99,7 +99,7 @@ export function ContactSection() {
               Conecta con Élite
             </motion.div>
 
-            <h2 className="font-display text-5xl md:text-7xl font-black text-[#031432] mb-10 leading-[0.9] tracking-tighter">
+            <h2 className="font-display text-4xl md:text-7xl font-black text-[#031432] mb-10 leading-[0.9] tracking-tighter">
               Ready for the <br />
               <span className="text-gradient-orange">Next Level?</span>
             </h2>
@@ -116,7 +116,7 @@ export function ContactSection() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 0.3 + idx * 0.1 }}
-                  className="group flex items-center gap-6 p-8 glass-modern rounded-[2.5rem] bg-white/70 hover:shadow-2xl transition-all duration-700"
+                  className="group flex flex-col md:flex-row items-center gap-4 md:gap-6 p-6 md:p-8 glass-modern rounded-[2rem] md:rounded-[2.5rem] bg-white/70 hover:shadow-2xl transition-all duration-700 text-center md:text-left"
                 >
                   <div className="w-16 h-16 rounded-2xl bg-[#031432] flex items-center justify-center group-hover:bg-primary transition-colors duration-500 shadow-xl">
                     <info.icon className="w-7 h-7 text-white" />
@@ -137,7 +137,7 @@ export function ContactSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="bg-white p-12 lg:p-20 rounded-[4rem] shadow-2xl relative z-10">
+            <div className="bg-white p-8 md:p-12 lg:p-20 rounded-[2.5rem] md:rounded-[4rem] shadow-2xl relative z-10">
               <h3 className="text-3xl font-black text-[#031432] mb-4">Direct Inquiry</h3>
               <p className="text-slate-500 font-bold mb-12">Cuéntanos sobre tu visión técnica.</p>
 

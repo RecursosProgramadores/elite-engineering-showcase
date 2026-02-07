@@ -58,7 +58,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative bg-[#031432] pt-32 pb-16 overflow-hidden">
+    <footer className="relative bg-[#031432] pt-20 md:pt-32 pb-16 overflow-hidden">
       {/* Decorative background lines */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-20" />
       <div className="absolute -bottom-48 -right-48 w-[600px] h-[600px] bg-primary/10 blur-[150px] rounded-full" />

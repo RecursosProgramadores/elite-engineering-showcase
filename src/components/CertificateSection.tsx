@@ -70,10 +70,10 @@ export function CertificateSection() {
                                 <motion.div
                                     animate={{ scale: [1, 1.1, 1], rotate: [0, 5, 0] }}
                                     transition={{ duration: 4, repeat: Infinity }}
-                                    className="absolute -top-10 -right-10 w-32 h-32 rounded-full glass-modern border-none p-4 shadow-2xl flex items-center justify-center group"
+                                    className="absolute -top-6 -right-4 md:-top-10 md:-right-10 w-24 h-24 md:w-32 md:h-32 rounded-full glass-modern border-none p-4 shadow-2xl flex items-center justify-center group z-20"
                                 >
                                     <div className="w-full h-full rounded-full bg-[#031432] flex items-center justify-center group-hover:bg-primary transition-colors duration-500 shadow-xl">
-                                        <ShieldCheck className="w-12 h-12 text-white" />
+                                        <ShieldCheck className="w-8 h-8 md:w-12 md:h-12 text-white" />
                                     </div>
                                 </motion.div>
                             </motion.div>
@@ -97,7 +97,7 @@ export function CertificateSection() {
                                 Respaldo de Élite
                             </motion.div>
 
-                            <h2 className="font-display text-5xl md:text-8xl font-black text-[#031432] mb-10 leading-[0.9] tracking-tighter">
+                            <h2 className="font-display text-4xl md:text-8xl font-black text-[#031432] mb-10 leading-[0.9] tracking-tighter">
                                 Certificación <br />
                                 <span className="text-gradient-orange">Verified</span>
                             </h2>
@@ -117,7 +117,7 @@ export function CertificateSection() {
                                         initial={{ opacity: 0, x: 30 }}
                                         whileInView={{ opacity: 1, x: 0 }}
                                         transition={{ delay: 0.3 + i * 0.1 }}
-                                        className="flex gap-6 p-8 rounded-3xl bg-slate-50 hover:bg-white hover:shadow-xl transition-all duration-500 group"
+                                        className="flex gap-4 md:gap-6 p-6 md:p-8 rounded-3xl bg-slate-50 hover:bg-white hover:shadow-xl transition-all duration-500 group"
                                     >
                                         <div className="w-14 h-14 rounded-2xl bg-[#031432] flex items-center justify-center shrink-0 group-hover:bg-primary transition-colors duration-500">
                                             <CheckCircle className="w-7 h-7 text-white" />

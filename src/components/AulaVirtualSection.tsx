@@ -120,7 +120,7 @@ export function AulaVirtualSection() {
               Elite Academy
             </motion.div>
 
-            <h2 className="font-display text-5xl md:text-7xl font-black text-[#031432] mb-10 leading-[0.9] tracking-tighter">
+            <h2 className="font-display text-4xl md:text-7xl font-black text-[#031432] mb-10 leading-[0.9] tracking-tighter">
               Lidera la <br />
               <span className="text-gradient-orange">Construcción 4.0</span>
             </h2>
@@ -144,11 +144,11 @@ export function AulaVirtualSection() {
             transition={{ duration: 1 }}
             className="relative"
           >
-            <div className="glass-modern p-12 rounded-[3.5rem] shadow-2xl relative z-10 bg-white/70 overflow-hidden">
+            <div className="glass-modern p-8 md:p-12 rounded-[2.5rem] md:rounded-[3.5rem] shadow-2xl relative z-10 bg-white/70 overflow-hidden">
               <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/10 blur-[50px] rounded-full" />
               <div className="relative z-10">
-                <span className="block text-8xl font-black text-[#031432] leading-none mb-4">500+</span>
-                <span className="block text-2xl font-black text-primary uppercase tracking-widest mb-8">Graduados Élite</span>
+                <span className="block text-6xl md:text-8xl font-black text-[#031432] leading-none mb-4">500+</span>
+                <span className="block text-xl md:text-2xl font-black text-primary uppercase tracking-widest mb-8">Graduados Élite</span>
                 <p className="text-slate-500 font-bold leading-relaxed mb-10">
                   Nuestra plataforma ha formado a los líderes técnicos de las constructoras más grandes del Perú.
                 </p>
@@ -250,7 +250,7 @@ export function AulaVirtualSection() {
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="mt-48 glass-dark p-16 rounded-[4rem] relative overflow-hidden text-center text-white"
+          className="mt-24 lg:mt-48 glass-dark p-8 md:p-16 rounded-[2.5rem] md:rounded-[4rem] relative overflow-hidden text-center text-white"
         >
           <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-[#031432]/20" />
           <div className="relative z-10 max-w-2xl mx-auto">
