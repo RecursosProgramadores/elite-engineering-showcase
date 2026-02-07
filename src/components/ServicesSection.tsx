@@ -89,113 +89,100 @@ export function ServicesSection() {
     <section
       id="servicios"
       ref={ref}
-      className="relative py-24 lg:py-32 overflow-hidden bg-[#f8fafc]"
+      className="relative py-32 lg:py-48 overflow-hidden bg-[#f1f4f9]"
     >
-      {/* Background Decor */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />
-
-      {/* Decorative grid */}
-      <div
-        className="absolute inset-0 opacity-[0.05]"
-        style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, hsl(4 82% 56%) 1px, transparent 0)`,
-          backgroundSize: "50px 50px",
-        }}
-      />
+      {/* Dynamic Background Elements */}
+      <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-primary/5 blur-[150px] rounded-full animate-pulse" />
+      <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-[#031432]/5 blur-[120px] rounded-full" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          transition={{ duration: 0.8 }}
+          className="text-center mb-32"
         >
-          <motion.span
-            className="inline-flex items-center gap-2 text-primary font-semibold text-sm uppercase tracking-[0.3em] mb-4"
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ delay: 0.2 }}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-full glass-frost text-primary font-bold text-xs uppercase tracking-[0.4em] mb-8"
           >
             <Sparkles className="w-4 h-4" />
-            Nuestros Servicios
-            <Sparkles className="w-4 h-4" />
-          </motion.span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-6">
-            Soluciones <span className="text-gradient-orange">Integrales</span>
+            Excelencia Técnica
+          </motion.div>
+
+          <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-black text-[#031432] mb-8 leading-tight">
+            Soluciones de <br />
+            <span className="text-gradient-orange">Vanguardia Digital</span>
           </h2>
-          <p className="text-muted-foreground max-w-3xl mx-auto text-lg leading-relaxed">
-            Ofrecemos un ecosistema completo de servicios BIM y tecnologías
-            digitales para transformar tu forma de diseñar, construir y gestionar proyectos.
+
+          <p className="text-slate-500 max-w-2xl mx-auto text-xl font-medium leading-relaxed">
+            Fusionamos ingeniería de precisión con herramientas digitales de élite para redefinir el futuro de la construcción en el Perú.
           </p>
         </motion.div>
 
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* High-Impact Services Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group relative"
+              transition={{ duration: 0.8, delay: index * 0.1 }}
+              className="group h-full"
             >
-              <div className="h-full bg-white border border-border/40 rounded-2xl p-6 transition-all duration-500 hover:border-primary/20 hover:shadow-xl">
-                {/* Icon */}
-                <motion.div
-                  className={`w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-orange-400 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 glow-orange`}
-                  whileHover={{ rotate: 6 }}
-                >
-                  <service.icon className="w-7 h-7 text-white" />
-                </motion.div>
+              <div className="relative h-full glass-modern rounded-[2.5rem] p-8 transition-all duration-700 hover:-translate-y-4 hover:shadow-2xl hover:border-primary/20 bg-white/70">
+                {/* Tactical Icon Container */}
+                <div className="w-20 h-20 rounded-3xl bg-[#031432] flex items-center justify-center mb-8 relative overflow-hidden group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                  <service.icon className="w-10 h-10 text-primary relative z-10" />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent" />
+                </div>
 
                 {/* Content */}
-                <h3 className="font-display text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                <h3 className="text-2xl font-black text-[#031432] mb-4 group-hover:text-primary transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+
+                <p className="text-slate-500 leading-relaxed mb-8 text-sm font-medium opacity-80 group-hover:opacity-100 transition-opacity">
                   {service.description}
                 </p>
 
-                {/* Features */}
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {service.features.map((feature) => (
-                    <span
-                      key={feature}
-                      className="text-[10px] px-2.5 py-1 rounded-full bg-primary/10 text-primary border border-primary/20 font-bold uppercase"
-                    >
-                      {feature}
+                {/* Micro-Features */}
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  {service.features.slice(0, 2).map((feat) => (
+                    <span key={feat} className="text-[9px] font-black uppercase tracking-widest text-[#031432]/40 group-hover:text-primary/60 transition-colors">
+                      • {feat}
                     </span>
                   ))}
                 </div>
 
-                {/* Arrow Link */}
-                <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
-                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                    <ArrowUpRight className="w-4 h-4 text-primary" />
-                  </div>
-                </div>
+                {/* Invisible Hover Depth */}
+                <div className="absolute inset-0 rounded-[2.5rem] border-2 border-primary/0 group-hover:border-primary/5 transition-all duration-700" />
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Bottom CTA */}
+        {/* Premium Bottom Section */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-center mt-16"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ delay: 1 }}
+          className="mt-32 flex flex-col items-center"
         >
-          <p className="text-muted-foreground mb-4">
-            ¿Necesitas una solución personalizada para tu proyecto?
+          <div className="w-px h-24 bg-gradient-to-b from-primary to-transparent mb-12" />
+          <p className="text-[#031432]/60 font-bold tracking-widest uppercase text-xs mb-8">
+            ¿Listo para elevar tus estándares?
           </p>
           <a
             href="#contacto"
-            className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all group"
+            className="inline-flex items-center gap-4 text-[#031432] hover:text-primary font-black text-2xl transition-all group"
           >
-            Conversemos sobre tus necesidades
-            <ArrowUpRight className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            Inicia tu proyecto hoy
+            <div className="w-12 h-12 rounded-full border-2 border-[#031432]/10 flex items-center justify-center group-hover:border-primary transition-colors group-hover:scale-110 transition-transform">
+              <ArrowUpRight className="w-6 h-6" />
+            </div>
           </a>
         </motion.div>
       </div>

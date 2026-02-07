@@ -11,6 +11,7 @@ import {
   Star,
   Quote,
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const clientProfiles = [
   {
@@ -49,9 +50,10 @@ export function ClientFocusSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="relative py-24 lg:py-32 overflow-hidden bg-background">
+    <section ref={ref} className="relative py-32 lg:py-56 overflow-hidden bg-slate-50">
       {/* Background Decor */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 blur-[150px] rounded-full -translate-y-1/2 translate-x-1/2" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-px bg-gradient-to-r from-[#031432]/0 via-primary/30 to-[#031432]/0" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -59,35 +61,32 @@ export function ClientFocusSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="max-w-4xl mb-24 lg:mb-32"
         >
           <motion.span
-            className="inline-flex items-center gap-2 text-primary font-semibold text-sm uppercase tracking-[0.3em] mb-4"
+            className="inline-flex items-center gap-2 text-primary font-black text-xs uppercase tracking-[0.5em] mb-10"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.2 }}
           >
-            <Star className="w-4 h-4" />
-            Nuestros Clientes
-            <Star className="w-4 h-4" />
+            Foco de Impacto
           </motion.span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-6">
-            Soluciones para{" "}
-            <span className="text-gradient-orange">Cada Necesidad</span>
+          <h2 className="font-display text-5xl md:text-8xl font-black text-[#031432] mb-10 leading-[0.9] tracking-tighter">
+            Ecosistema de <br />
+            <span className="text-gradient-orange">Soluciones</span>
           </h2>
-          <p className="text-muted-foreground max-w-3xl mx-auto text-lg">
-            Trabajamos con profesionales y empresas que buscan precisión,
-            colaboración y sostenibilidad.
+          <p className="text-slate-500 text-xl font-medium leading-relaxed max-w-2xl">
+            Diseñamos estrategias de transformación digital para los pilares más exigentes de la industria de la construcción.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Left - Client Profiles */}
+        <div className="grid lg:grid-cols-2 gap-24 items-start">
+          {/* Left - Elite Profiles */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="grid sm:grid-cols-2 gap-4"
+            className="grid sm:grid-cols-2 gap-8"
           >
             {clientProfiles.map((profile, index) => (
               <motion.div
@@ -95,88 +94,75 @@ export function ClientFocusSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                className="group bg-white border border-border/40 rounded-2xl p-6 hover:shadow-xl transition-all duration-500"
+                className="group glass-modern bg-white/80 p-10 rounded-[2.5rem] border-none shadow-xl hover:shadow-2xl transition-all duration-700"
               >
-                <motion.div
-                  className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary transition-all duration-500"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                >
-                  <profile.icon className="w-7 h-7 text-primary group-hover:text-white transition-colors" />
-                </motion.div>
-                <h3 className="font-display text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                <div className="w-16 h-16 rounded-2xl bg-[#031432] flex items-center justify-center mb-8 group-hover:bg-primary group-hover:glow-orange-strong transition-all duration-500 shadow-xl">
+                  <profile.icon className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-black text-[#031432] mb-4 group-hover:text-primary transition-colors">
                   {profile.title}
                 </h3>
-                <p className="text-muted-foreground text-sm">
+                <p className="text-slate-500 font-bold leading-relaxed">
                   {profile.description}
                 </p>
               </motion.div>
             ))}
           </motion.div>
 
-          {/* Right - Benefits & Testimonial */}
+          {/* Right - Strategic Advantages */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-6"
+            className="space-y-10"
           >
-            {/* Benefits Card */}
-            <div className="bg-white border border-border/40 rounded-3xl p-8 shadow-sm">
-              <h3 className="font-display text-2xl font-bold text-foreground mb-6">
-                ¿Por qué elegir <span className="text-primary">Elite Engineering</span>?
-              </h3>
+            <div className="bg-[#031432] p-12 lg:p-16 rounded-[3.5rem] shadow-2xl relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 blur-[80px] rounded-full -mr-20 -mt-20 group-hover:scale-150 transition-transform duration-1000" />
 
-              <div className="grid gap-3 mb-6">
+              <h3 className="text-3xl font-black text-white mb-10">La Ventaja <span className="text-gradient-orange">Elite</span></h3>
+
+              <div className="grid gap-6 mb-12">
                 {benefits.map((benefit, index) => (
                   <motion.div
                     key={benefit}
                     initial={{ opacity: 0, x: 20 }}
                     animate={isInView ? { opacity: 1, x: 0 } : {}}
                     transition={{ duration: 0.4, delay: 0.4 + index * 0.08 }}
-                    className="flex items-center gap-3 p-3 rounded-xl hover:bg-primary/5 transition-colors group"
+                    className="flex items-center gap-5 group/item"
                   >
-                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
-                    <span className="text-foreground group-hover:text-primary transition-colors">
+                    <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover/item:bg-primary transition-colors">
+                      <CheckCircle2 className="w-4 h-4 text-primary group-hover/item:text-white" />
+                    </div>
+                    <span className="text-slate-300 font-bold group-hover/item:text-white transition-colors">
                       {benefit}
                     </span>
                   </motion.div>
                 ))}
               </div>
 
-              <a
-                href="#contacto"
-                className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
-              >
-                Únete a nuestros clientes
-                <ArrowRight className="w-4 h-4" />
-              </a>
+              <Button className="w-full py-8 rounded-2xl bg-primary hover:bg-orange-600 text-white font-black text-lg shadow-xl glow-orange-strong">
+                Únete a la Vanguardia <ArrowRight className="ml-3 w-6 h-6" />
+              </Button>
             </div>
 
-            {/* Testimonial */}
+            {/* Premium Testimonial Card */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="bg-white border border-border/40 rounded-2xl p-6 border-l-4 border-primary relative shadow-sm"
+              className="glass-modern bg-white/70 p-12 rounded-[3.5rem] border-l-[12px] border-primary shadow-2xl relative"
             >
-              <Quote className="absolute top-4 right-4 w-8 h-8 text-primary/10" />
-              <p className="text-muted-foreground italic mb-4 leading-relaxed">
-                "Elite Engineering transformó nuestra forma de presentar proyectos.
-                Las visualizaciones VR nos ayudaron a cerrar más ventas y tomar
-                mejores decisiones."
+              <Quote className="absolute top-12 right-12 w-20 h-20 text-primary/5" />
+              <p className="text-2xl font-bold text-[#031432] italic mb-10 leading-[1.4]">
+                "Elite Engineering no solo entrega modelos; entrega <span className="text-primary">certeza técnica</span>."
               </p>
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-orange-400 flex items-center justify-center shadow-lg">
-                  <span className="text-white font-bold">JC</span>
+              <div className="flex items-center gap-6">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#031432] to-slate-800 flex items-center justify-center shadow-2xl">
+                  <span className="text-white font-black text-xl">JC</span>
                 </div>
                 <div>
-                  <p className="text-foreground font-semibold">Juan Carlos M.</p>
-                  <p className="text-muted-foreground text-sm">Gerente de Proyectos</p>
-                </div>
-                <div className="ml-auto flex gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                  ))}
+                  <p className="text-xl font-black text-[#031432]">Juan Carlos M.</p>
+                  <p className="text-slate-400 font-black text-xs uppercase tracking-widest">Director de Infraestructura</p>
                 </div>
               </div>
             </motion.div>

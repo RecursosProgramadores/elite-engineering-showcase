@@ -115,81 +115,77 @@ export function PortfolioSection() {
     );
 
     return (
-        <section id="portafolio" ref={ref} className="relative py-24 lg:py-32 overflow-hidden bg-background">
-            {/* Decorative background elements */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
-            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full translate-y-1/2 -translate-x-1/2" />
+        <section id="portafolio" ref={ref} className="relative py-32 lg:py-56 overflow-hidden bg-[#f8fafc]">
+            {/* Background elements */}
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 blur-[150px] rounded-full" />
 
             <div className="container mx-auto px-4 lg:px-8 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.6 }}
-                    className="text-center mb-16"
+                    transition={{ duration: 0.8 }}
+                    className="text-center mb-24"
                 >
-                    <motion.span
-                        className="inline-flex items-center gap-2 text-primary font-semibold text-sm uppercase tracking-[0.3em] mb-4"
-                        initial={{ opacity: 0 }}
-                        animate={isInView ? { opacity: 1 } : {}}
-                        transition={{ delay: 0.2 }}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                        className="inline-flex items-center gap-2 px-5 py-2 rounded-full glass-frost text-primary font-bold text-xs uppercase tracking-[0.4em] mb-8"
                     >
-                        <span className="w-8 h-px bg-primary" />
-                        Portafolio
-                        <span className="w-8 h-px bg-primary" />
-                    </motion.span>
-                    <h2 className="font-display text-4xl md:text-5xl font-black text-foreground mb-6">
-                        Proyectos <span className="text-gradient-orange">Destacados</span>
+                        Nuestra Trayectoria
+                    </motion.div>
+
+                    <h2 className="font-display text-5xl md:text-7xl font-black text-[#031432] mb-8 tracking-tighter">
+                        Ingeniería en <span className="text-gradient-orange">Acción</span>
                     </h2>
-                    <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-                        Explora nuestra trayectoria en implementación BIM y transformación digital.
-                        Calidad técnica y precisión en cada entrega.
+
+                    <p className="text-slate-500 max-w-2xl mx-auto text-xl font-medium leading-relaxed">
+                        Un vistazo a los desafíos que hemos superado y las visiones que hemos materializado a lo largo del país.
                     </p>
                 </motion.div>
 
-                {/* Filter Tabs */}
-                <div className="flex flex-wrap justify-center gap-3 mb-16">
+                {/* Modern Filter Tabs */}
+                <div className="flex flex-wrap justify-center gap-4 mb-24">
                     {categories.map((category) => (
-                        <Button
+                        <button
                             key={category.id}
                             onClick={() => setActiveCategory(category.id)}
-                            variant={activeCategory === category.id ? "default" : "outline"}
-                            className={`rounded-full px-6 transition-all duration-300 ${activeCategory === category.id
-                                ? "bg-primary text-white hover:bg-orange-600 shadow-md glow-orange"
-                                : "border-border text-foreground hover:border-primary hover:text-primary"
+                            className={`px-8 py-3 rounded-2xl font-black text-sm uppercase tracking-widest transition-all duration-500 flex items-center gap-3 ${activeCategory === category.id
+                                    ? "bg-[#031432] text-white shadow-2xl scale-105"
+                                    : "bg-white/50 text-slate-400 hover:text-[#031432] border border-slate-100"
                                 }`}
                         >
-                            <category.icon className="w-4 h-4 mr-2" />
+                            <category.icon className={`w-4 h-4 ${activeCategory === category.id ? 'text-primary' : ''}`} />
                             {category.label}
-                        </Button>
+                        </button>
                     ))}
                 </div>
 
-                {/* Grid */}
+                {/* Masonry Grid */}
                 <motion.div
                     layout
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+                    className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8"
                 >
                     <AnimatePresence mode="popLayout">
-                        {filteredProjects.map((project) => (
+                        {filteredProjects.map((project, idx) => (
                             <motion.div
                                 key={project.id}
                                 layout
                                 initial={{ opacity: 0, scale: 0.9 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.9 }}
-                                transition={{ duration: 0.4 }}
-                                className="group relative"
+                                transition={{ duration: 0.6, delay: idx * 0.05 }}
+                                className="break-inside-avoid"
                             >
-                                <div className="bg-white border border-border/40 rounded-3xl overflow-hidden h-full flex flex-col hover:shadow-2xl hover:border-primary/20 transition-all duration-500">
-                                    {/* Image/Video Container */}
-                                    <div className="relative aspect-[16/10] overflow-hidden bg-muted/20">
+                                <div className="group relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-[#031432]">
+                                    {/* Media Container */}
+                                    <div className="relative overflow-hidden">
                                         {project.type === "video" ? (
                                             <video
                                                 autoPlay
                                                 muted
                                                 loop
                                                 playsInline
-                                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 opacity-60 group-hover:opacity-40"
                                             >
                                                 <source src={project.image} type="video/mp4" />
                                             </video>
@@ -197,47 +193,35 @@ export function PortfolioSection() {
                                             <img
                                                 src={project.image}
                                                 alt={project.title}
-                                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 opacity-60 group-hover:opacity-40"
                                             />
                                         )}
-                                        {/* Overlay */}
-                                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                                            <Button size="icon" className="rounded-full bg-primary text-white scale-0 group-hover:scale-100 transition-transform duration-500 delay-100 glow-orange">
-                                                <Maximize2 className="w-5 h-5" />
-                                            </Button>
-                                            <Button size="icon" className="rounded-full bg-white text-primary scale-0 group-hover:scale-100 transition-transform duration-500 delay-200">
-                                                <ExternalLink className="w-5 h-5" />
-                                            </Button>
-                                        </div>
-                                        {/* Category Tag */}
-                                        <div className="absolute top-4 left-4">
-                                            <span className="px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-border text-[10px] font-bold uppercase tracking-widest text-primary">
-                                                {categories.find(c => c.id === project.category)?.label}
-                                            </span>
-                                        </div>
-                                    </div>
 
-                                    {/* Content */}
-                                    <div className="p-6 flex-1 flex flex-col">
-                                        <div className="mb-2">
-                                            <h3 className="font-display text-xl font-bold text-foreground group-hover:text-primary transition-colors">
-                                                {project.title}
-                                            </h3>
-                                            <p className="text-primary text-sm font-medium uppercase tracking-wider">
-                                                {project.subtitle}
-                                            </p>
+                                        {/* Floating Content Overlay */}
+                                        <div className="absolute inset-0 p-10 flex flex-col justify-end translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+                                            <div className="space-y-4">
+                                                <span className="text-primary font-black uppercase tracking-[0.3em] text-[10px] bg-primary/10 px-3 py-1 rounded-full border border-primary/20">
+                                                    {categories.find(c => c.id === project.category)?.label}
+                                                </span>
+                                                <h3 className="text-3xl font-black text-white leading-tight">
+                                                    {project.title}
+                                                </h3>
+                                                <p className="text-white/60 text-sm font-medium line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                                    {project.description}
+                                                </p>
+                                                <div className="pt-4 flex gap-4 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+                                                    <Button className="rounded-2xl bg-white text-[#031432] font-black hover:bg-primary hover:text-white transition-colors">
+                                                        Detalles
+                                                    </Button>
+                                                    <div className="w-12 h-12 rounded-2xl glass-frost flex items-center justify-center text-white hover:bg-white hover:text-[#031432] transition-colors cursor-pointer">
+                                                        <Maximize2 className="w-5 h-5" />
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <p className="text-muted-foreground text-sm line-clamp-3 mb-6">
-                                            {project.description}
-                                        </p>
-                                        <div className="mt-auto pt-4 border-t border-border/10">
-                                            <Button variant="link" className="p-0 h-auto text-primary hover:text-orange-600 group/btn">
-                                                Ver Detalles
-                                                <motion.span className="ml-2 inline-block transition-transform group-hover/btn:translate-x-1">
-                                                    →
-                                                </motion.span>
-                                            </Button>
-                                        </div>
+
+                                        {/* Hover Glow */}
+                                        <div className="absolute inset-0 border-4 border-primary/0 group-hover:border-primary/20 rounded-[2.5rem] transition-all duration-500" />
                                     </div>
                                 </div>
                             </motion.div>

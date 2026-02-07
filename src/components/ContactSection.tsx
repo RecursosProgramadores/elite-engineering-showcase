@@ -78,219 +78,118 @@ export function ContactSection() {
   };
 
   return (
-    <section
-      id="contacto"
-      ref={ref}
-      className="relative py-24 lg:py-32 overflow-hidden bg-background"
-    >
-      {/* Background Decor */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+    <section id="contacto" ref={ref} className="relative py-32 lg:py-56 overflow-hidden bg-slate-50">
+      {/* Immersive Background Decor */}
+      <div className="absolute top-0 left-0 w-full h-full bg-[#031432]/5 -skew-y-6 translate-y-1/2" />
+      <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-primary/5 blur-[150px] rounded-full" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <motion.span
-            className="inline-flex items-center gap-2 text-primary font-semibold text-sm uppercase tracking-[0.3em] mb-4"
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ delay: 0.2 }}
-          >
-            <Sparkles className="w-4 h-4" />
-            Contacto
-            <Sparkles className="w-4 h-4" />
-          </motion.span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-6">
-            Hablemos de tu{" "}
-            <span className="text-gradient-orange">Proyecto</span>
-          </h2>
-          <p className="text-muted-foreground max-w-3xl mx-auto text-lg">
-            Estamos listos para acompañarte en la transformación digital
-            de tus proyectos de ingeniería.
-          </p>
-        </motion.div>
-
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
-          {/* Left - Contact Info */}
+        <div className="grid lg:grid-cols-2 gap-24 items-start">
+          {/* Left - Contact Info & Strategy */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
-            <h3 className="font-display text-2xl font-bold text-foreground mb-8">
-              Información de Contacto
-            </h3>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : {}}
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-full glass-frost text-primary font-bold text-xs uppercase tracking-[0.4em] mb-10"
+            >
+              Conecta con Élite
+            </motion.div>
 
-            {/* Contact Cards */}
-            <div className="space-y-4 mb-8">
-              {contactInfo.map((info, index) => (
+            <h2 className="font-display text-5xl md:text-7xl font-black text-[#031432] mb-10 leading-[0.9] tracking-tighter">
+              Ready for the <br />
+              <span className="text-gradient-orange">Next Level?</span>
+            </h2>
+
+            <p className="text-slate-500 max-w-xl text-xl font-medium leading-relaxed mb-16">
+              Llevamos la precisión técnica a tu puerta. Nuestro equipo está listo para integrar metodologías de vanguardia en tu organización.
+            </p>
+
+            <div className="space-y-6">
+              {contactInfo.map((info, idx) => (
                 <motion.a
                   key={info.label}
                   href={info.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                  className="flex items-center gap-4 p-5 rounded-2xl bg-white border border-border/40 hover:border-primary/20 hover:shadow-lg transition-all duration-500 group"
+                  transition={{ delay: 0.3 + idx * 0.1 }}
+                  className="group flex items-center gap-6 p-8 glass-modern rounded-[2.5rem] bg-white/70 hover:shadow-2xl transition-all duration-700"
                 >
-                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-all duration-500">
-                    <info.icon className="w-6 h-6 text-primary group-hover:text-white transition-colors" />
+                  <div className="w-16 h-16 rounded-2xl bg-[#031432] flex items-center justify-center group-hover:bg-primary transition-colors duration-500 shadow-xl">
+                    <info.icon className="w-7 h-7 text-white" />
                   </div>
-                  <div className="flex-1">
-                    <p className="text-sm text-muted-foreground">{info.label}</p>
-                    <p className="font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {info.value}
-                    </p>
+                  <div>
+                    <span className="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">{info.label}</span>
+                    <span className="block text-xl font-black text-[#031432] group-hover:text-primary transition-colors">{info.value}</span>
                   </div>
-                  <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
                 </motion.a>
               ))}
             </div>
-
-            {/* Social Links */}
-            <div className="mb-8">
-              <h4 className="font-semibold text-foreground mb-4">Síguenos</h4>
-              <div className="flex gap-3">
-                {socialLinks.map((social) => (
-                  <motion.a
-                    key={social.name}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-12 h-12 rounded-xl bg-white border border-border/40 flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white transition-all duration-300 shadow-sm hover:shadow-md hover:border-primary/20"
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    {social.icon}
-                  </motion.a>
-                ))}
-              </div>
-            </div>
-
-            {/* WhatsApp CTA */}
-            <motion.a
-              href="https://wa.me/51955833613"
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="flex items-center gap-4 p-6 rounded-2xl bg-white border border-primary/20 hover:border-primary transition-all group shadow-lg glow-orange"
-            >
-              <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary to-orange-400 flex items-center justify-center shadow-lg">
-                <MessageCircle className="w-8 h-8 text-white" />
-              </div>
-              <div>
-                <p className="font-display font-bold text-foreground text-xl">
-                  Chatea con nosotros
-                </p>
-                <p className="text-muted-foreground text-sm">
-                  Respuesta rápida por WhatsApp
-                </p>
-              </div>
-              <ArrowUpRight className="w-6 h-6 text-primary ml-auto group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-            </motion.a>
           </motion.div>
 
-          {/* Right - Contact Form */}
+          {/* Right - Premium Neumorphic Form */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative"
           >
-            <div className="bg-white border border-border/40 rounded-3xl p-8 lg:p-10 shadow-xl">
-              <h3 className="font-display text-2xl font-bold text-foreground mb-2">
-                Envíanos un mensaje
-              </h3>
-              <p className="text-muted-foreground text-sm mb-8">
-                Completa el formulario y te contactaremos pronto.
-              </p>
+            <div className="bg-white p-12 lg:p-20 rounded-[4rem] shadow-2xl relative z-10">
+              <h3 className="text-3xl font-black text-[#031432] mb-4">Direct Inquiry</h3>
+              <p className="text-slate-500 font-bold mb-12">Cuéntanos sobre tu visión técnica.</p>
 
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-sm font-medium text-foreground mb-2 block">
-                      Nombre
-                    </label>
+              <form onSubmit={handleSubmit} className="space-y-8">
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="space-y-3">
+                    <label className="text-xs font-black text-[#031432] uppercase tracking-widest">Nombre</label>
                     <Input
-                      type="text"
-                      placeholder="Tu nombre"
-                      className="bg-muted/30 border-border focus:border-primary focus:ring-primary/20"
-                      required
+                      className="h-16 rounded-2xl bg-slate-50 border-none px-6 font-bold text-[#031432] focus:shadow-inner-nm transition-all"
+                      placeholder="Tu nombre completo"
                     />
                   </div>
-                  <div>
-                    <label className="text-sm font-medium text-foreground mb-2 block">
-                      Empresa
-                    </label>
+                  <div className="space-y-3">
+                    <label className="text-xs font-black text-[#031432] uppercase tracking-widest">Empresa</label>
                     <Input
-                      type="text"
-                      placeholder="Tu empresa"
-                      className="bg-muted/30 border-border focus:border-primary focus:ring-primary/20"
+                      className="h-16 rounded-2xl bg-slate-50 border-none px-6 font-bold text-[#031432] focus:shadow-inner-nm transition-all"
+                      placeholder="Tu organización"
                     />
                   </div>
                 </div>
 
-                <div>
-                  <label className="text-sm font-medium text-foreground mb-2 block">
-                    Email
-                  </label>
+                <div className="space-y-3">
+                  <label className="text-xs font-black text-[#031432] uppercase tracking-widest">Email Corporativo</label>
                   <Input
-                    type="email"
-                    placeholder="tu@email.com"
-                    className="bg-muted/30 border-border focus:border-primary focus:ring-primary/20"
-                    required
+                    className="h-16 rounded-2xl bg-slate-50 border-none px-6 font-bold text-[#031432] focus:shadow-inner-nm transition-all"
+                    placeholder="email@empresa.com"
                   />
                 </div>
 
-                <div>
-                  <label className="text-sm font-medium text-foreground mb-2 block">
-                    Teléfono
-                  </label>
-                  <Input
-                    type="tel"
-                    placeholder="+51 999 999 999"
-                    className="bg-muted/30 border-border focus:border-primary focus:ring-primary/20"
-                  />
-                </div>
-
-                <div>
-                  <label className="text-sm font-medium text-foreground mb-2 block">
-                    Mensaje
-                  </label>
+                <div className="space-y-3">
+                  <label className="text-xs font-black text-[#031432] uppercase tracking-widest">Mensaje</label>
                   <Textarea
-                    placeholder="Cuéntanos sobre tu proyecto..."
-                    className="bg-muted/30 border-border focus:border-primary focus:ring-primary/20 min-h-[120px] resize-none"
-                    required
+                    className="min-h-[150px] rounded-3xl bg-slate-50 border-none p-6 font-bold text-[#031432] focus:shadow-inner-nm transition-all resize-none"
+                    placeholder="Descríbenos brevemente el alcance de tu proyecto..."
                   />
                 </div>
 
                 <Button
                   type="submit"
-                  size="lg"
-                  className="w-full bg-primary hover:bg-orange-600 text-white font-bold shadow-lg glow-orange transition-all"
-                  disabled={isSubmitted}
+                  className="w-full py-10 rounded-[2rem] bg-primary hover:bg-orange-600 text-white font-black text-xl shadow-2xl glow-orange-strong group"
                 >
                   {isSubmitted ? (
-                    <>
-                      <CheckCircle2 className="w-5 h-5 mr-2" />
-                      ¡Mensaje Enviado!
-                    </>
+                    <span className="flex items-center gap-3"><CheckCircle2 className="w-6 h-6" /> ¡ENVIADO!</span>
                   ) : (
-                    <>
-                      <Send className="w-5 h-5 mr-2" />
-                      Enviar Mensaje
-                    </>
+                    <span className="flex items-center gap-3">ENVIAR CONSULTA <Send className="w-5 h-5 group-hover:translate-x-2 group-hover:-translate-y-1 transition-transform" /></span>
                   )}
                 </Button>
               </form>
             </div>
+
+            {/* Background elements for the form */}
+            <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/10 blur-[50px] rounded-full" />
           </motion.div>
         </div>
       </div>

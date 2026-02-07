@@ -119,11 +119,7 @@ export function AchievementsSection() {
   const prev = () => setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
 
   return (
-    <section
-      id="logros"
-      ref={ref}
-      className="relative py-24 lg:py-32 overflow-hidden bg-background"
-    >
+    <section id="logros" ref={ref} className="relative py-32 lg:py-56 overflow-hidden bg-white">
       {/* Background Decor */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
@@ -134,152 +130,132 @@ export function AchievementsSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-24 lg:mb-32 max-w-4xl"
         >
           <motion.span
-            className="inline-flex items-center gap-2 text-primary font-semibold text-sm uppercase tracking-[0.3em] mb-4"
+            className="inline-flex items-center gap-2 text-primary font-black text-xs uppercase tracking-[0.5em] mb-10"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.2 }}
           >
-            <Trophy className="w-4 h-4" />
-            Nuestros Logros
-            <Trophy className="w-4 h-4" />
+            Trayectoria de Élite
           </motion.span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-black text-foreground mb-6">
-            Trayectoria de{" "}
-            <span className="text-gradient-orange">Excelencia</span>
+          <h2 className="font-display text-5xl md:text-8xl font-black text-[#031432] mb-10 leading-[0.9] tracking-tighter">
+            Impacto que <br />
+            <span className="text-gradient-orange">Trasciende</span>
           </h2>
-          <p className="text-muted-foreground max-w-3xl mx-auto text-lg">
-            Cada logro representa nuestro compromiso con la calidad y la innovación.
+          <p className="text-slate-500 text-xl font-medium leading-relaxed max-w-2xl">
+            Cada hito en nuestra historia es un testimonio de nuestra obsesión por la excelencia técnica y la innovación constante.
           </p>
         </motion.div>
 
-        {/* Navigation */}
-        <div className="flex items-center justify-between mb-8">
-          <div className="flex items-center gap-2">
-            {Array.from({ length: maxIndex + 1 }).map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrentIndex(i)}
-                className={`h-2 rounded-full transition-all duration-300 ${i === currentIndex ? "w-10 bg-primary glow-orange" : "w-2 bg-border hover:bg-primary/50"
-                  }`}
-              />
-            ))}
-          </div>
-          <div className="flex items-center gap-2">
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={prev}
-              className="border-border text-foreground hover:border-primary hover:bg-primary/5 hover:text-primary shadow-sm"
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </Button>
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={next}
-              className="border-border text-foreground hover:border-primary hover:bg-primary/5 hover:text-primary shadow-sm"
-            >
-              <ChevronRight className="w-4 h-4" />
-            </Button>
-          </div>
-        </div>
-
-        {/* Carousel */}
-        <div className="overflow-hidden">
-          <motion.div
-            className="flex gap-6"
-            animate={{ x: `${-currentIndex * 100}%` }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          >
-            {achievements.map((achievement, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
-                className="flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
+        {/* Carousel & Controls */}
+        <div className="relative">
+          <div className="flex items-center justify-between mb-12">
+            <div className="flex gap-4">
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={prev}
+                className="w-16 h-16 rounded-2xl glass-modern border-none shadow-xl hover:bg-primary hover:text-white transition-all duration-500"
               >
-                <div className="group h-full bg-white border border-border/40 rounded-2xl overflow-hidden flex flex-col hover:shadow-xl transition-all duration-500">
-                  {/* Media / Header Area */}
-                  <div className="relative h-48 overflow-hidden">
-                    {achievement.type === "video" ? (
-                      <video
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      >
-                        <source src={achievement.asset} type="video/mp4" />
-                      </video>
-                    ) : (
-                      <img
-                        src={achievement.asset}
-                        alt={achievement.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                    )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-60" />
-                    <div className="absolute top-4 left-4">
-                      <span className="text-[10px] font-bold px-3 py-1 rounded-full bg-primary/90 text-white uppercase tracking-wider backdrop-blur-sm border border-white/20">
+                <ChevronLeft className="w-6 h-6" />
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={next}
+                className="w-16 h-16 rounded-2xl glass-modern border-none shadow-xl hover:bg-primary hover:text-white transition-all duration-500"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </Button>
+            </div>
+
+            <div className="hidden md:flex items-center gap-2">
+              {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrentIndex(i)}
+                  className={`h-1.5 rounded-full transition-all duration-500 ${i === currentIndex ? "w-16 bg-primary shadow-[0_0_15px_rgba(236,64,52,0.5)]" : "w-4 bg-slate-200"
+                    }`}
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className="overflow-visible">
+            <motion.div
+              className="flex gap-10"
+              animate={{ x: `${-currentIndex * 105}%` }}
+              transition={{ type: "spring", stiffness: 200, damping: 25 }}
+            >
+              {achievements.map((achievement, index) => (
+                <motion.div
+                  key={index}
+                  className="flex-shrink-0 w-full md:w-[calc(50%-20px)] lg:w-[calc(33.333%-27px)]"
+                >
+                  <div className="group h-[600px] glass-modern rounded-[3rem] bg-white border-none shadow-2xl relative overflow-hidden transition-all duration-700 hover:-translate-y-4">
+                    {/* Immersive Media */}
+                    <div className="absolute inset-0">
+                      {achievement.type === "video" ? (
+                        <video
+                          autoPlay
+                          muted
+                          loop
+                          playsInline
+                          className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                        >
+                          <source src={achievement.asset} type="video/mp4" />
+                        </video>
+                      ) : (
+                        <img
+                          src={achievement.asset}
+                          alt={achievement.title}
+                          className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                        />
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#031432] via-[#031432]/20 to-transparent" />
+                    </div>
+
+                    {/* Elite Metadata */}
+                    <div className="absolute inset-0 p-12 flex flex-col justify-end">
+                      <span className="inline-flex w-fit px-4 py-1.5 rounded-full bg-primary text-white text-[10px] font-black uppercase tracking-[0.2em] mb-6 shadow-lg">
                         {achievement.category}
                       </span>
+                      <h3 className="text-3xl font-black text-white mb-6 leading-tight group-hover:text-primary transition-colors">
+                        {achievement.title}
+                      </h3>
+                      <p className="text-slate-300 font-medium leading-relaxed opacity-0 group-hover:opacity-100 translate-y-8 group-hover:translate-y-0 transition-all duration-500">
+                        {achievement.description}
+                      </p>
                     </div>
-                    <motion.div
-                      className="absolute bottom-4 right-4 w-10 h-10 rounded-xl bg-white/90 backdrop-blur-md border border-border flex items-center justify-center text-primary shadow-lg"
-                      whileHover={{ scale: 1.1, rotate: 5 }}
-                    >
-                      <achievement.icon className="w-5 h-5" />
-                    </motion.div>
-                  </div>
 
-                  {/* Content Area */}
-                  <div className="p-6 flex-grow ">
-                    <h3 className="font-display text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors leading-tight">
-                      {achievement.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {achievement.description}
-                    </p>
+                    <div className="absolute top-10 right-10 w-16 h-16 rounded-[1.5rem] bg-white/10 backdrop-blur-2xl border border-white/20 flex items-center justify-center text-white shadow-2xl">
+                      <achievement.icon className="w-8 h-8" />
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </div>
 
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16"
-        >
-          {[
-            { value: "11+", label: "Logros Destacados" },
-            { value: "5+", label: "Universidades" },
-            { value: "3+", label: "Entidades Públicas" },
-            { value: "100%", label: "Compromiso" },
-          ].map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-              className="bg-white border border-border/40 rounded-2xl p-6 text-center group hover:shadow-lg hover:border-primary/20 transition-all duration-300"
-            >
-              <div className="text-3xl md:text-4xl font-display font-black text-gradient-orange mb-2">
-                {stat.value}
+        {/* High Precision Stats Bar */}
+        <div className="mt-32 pt-20 border-t border-slate-100">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 text-left">
+            {[
+              { value: "11+", label: "Hitos Destacados" },
+              { value: "05+", label: "Instituciones de Élite" },
+              { value: "03+", label: "Gobiernos Regionales" },
+              { value: "100%", label: "Trazabilidad" },
+            ].map((stat, idx) => (
+              <div key={idx} className="flex flex-col gap-2">
+                <span className="text-5xl lg:text-7xl font-black text-gradient-orange">{stat.value}</span>
+                <span className="text-[10px] uppercase tracking-[0.4em] font-black text-slate-400">{stat.label}</span>
               </div>
-              <div className="text-sm text-muted-foreground group-hover:text-primary transition-colors">
-                {stat.label}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
