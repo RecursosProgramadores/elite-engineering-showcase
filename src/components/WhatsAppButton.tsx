@@ -12,7 +12,7 @@ export function WhatsAppButton() {
       transition={{ delay: 2 }}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
-      className="fixed bottom-8 right-8 z-50 flex items-center gap-3 bg-primary hover:bg-orange-600 text-white px-5 py-4 rounded-full shadow-lg glow-orange-strong hover:shadow-xl transition-all group"
+      className="fixed bottom-8 right-8 z-50 flex items-center gap-3 bg-primary hover:bg-accent text-white px-5 py-4 rounded-full shadow-lg glow-orange-strong hover:shadow-xl transition-all group"
     >
       <motion.div
         animate={{ rotate: [0, 15, -15, 0] }}

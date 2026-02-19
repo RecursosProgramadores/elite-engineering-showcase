@@ -92,7 +92,7 @@ export function HeroSection() {
       className="relative min-h-[95vh] flex items-center justify-center overflow-hidden pt-20"
     >
       {/* Immersive Background */}
-      <div className="absolute inset-0 bg-[#031432] z-0">
+      <div className="absolute inset-0 bg-primary z-0">
         <video
           autoPlay
           muted
@@ -102,7 +102,7 @@ export function HeroSection() {
         >
           <source src="/assets/home3d.mp4" type="video/mute" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#031432]/60 to-[#031432]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/60 to-primary" />
       </div>
 
       <FloatingParticles />
@@ -136,7 +136,7 @@ export function HeroSection() {
 
                   <h1 className="hero-heading text-white mb-6 md:mb-8 leading-[0.85] md:leading-[0.9]">
                     Ingeniería de <br />
-                    <span className="text-gradient-orange">élite</span>
+                    <span className="text-gradient-orange">Elite</span>
                     <span className="text-primary">.</span>
                   </h1>
 
@@ -167,9 +167,9 @@ export function HeroSection() {
                   {/* High Impact Stats */}
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mt-16 pt-12 border-t border-white/10">
                     {[
-                      { value: "100+", label: "Proyectos" },
+                      { value: "50+", label: "Proyectos" },
                       { value: "50+", label: "Cursos" },
-                      { value: "10+", label: "Años" },
+                      { value: "3+", label: "Años" },
                       { value: "98%", label: "Éxito" },
                     ].map((stat, idx) => (
                       <motion.div
@@ -231,12 +231,80 @@ export function HeroSection() {
                     </a>
                   </div>
                 </div>
-                <div className="hidden lg:block relative">
-                  <img
-                    src="/assets/carrousel/carrousel_2.png"
-                    alt="Academy Platform"
-                    className="w-full max-w-lg drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
-                  />
+                <div className="hidden lg:block relative h-[500px] w-full max-w-2xl mx-auto">
+                  {/* Background Aura */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-primary/10 blur-[100px] rounded-full animate-pulse" />
+
+                  {/* Main Image (carrousel_2.png) */}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1 }}
+                    className="relative z-10 w-[70%] mx-auto"
+                  >
+                    <img
+                      src="/assets/carrousel/carrousel_2.png"
+                      alt="Academy Platform"
+                      className="w-full drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] rounded-[2rem] border border-white/10"
+                    />
+                  </motion.div>
+
+                  {/* Upper-Left (carrousel_3.png) */}
+                  <motion.div
+                    initial={{ opacity: 0, x: -30, y: -30 }}
+                    whileInView={{ opacity: 1, x: 0, y: 0 }}
+                    animate={{ y: [0, -15, 0] }}
+                    transition={{
+                      opacity: { duration: 1, delay: 0.3 },
+                      x: { duration: 1, delay: 0.3 },
+                      y: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+                    }}
+                    className="absolute -top-16 -left-12 w-[40%] z-20"
+                  >
+                    <img
+                      src="/assets/carrousel/carrousel_3.png"
+                      alt="BIM Course"
+                      className="w-full drop-shadow-[0_15px_30px_rgba(0,0,0,0.4)] rounded-2xl border border-white/20 glass-modern p-1"
+                    />
+                  </motion.div>
+
+                  {/* Middle-Right (carrousel_4.png) */}
+                  <motion.div
+                    initial={{ opacity: 0, x: 30, y: 10 }}
+                    whileInView={{ opacity: 1, x: 0, y: 0 }}
+                    animate={{ y: [0, 15, 0] }}
+                    transition={{
+                      opacity: { duration: 1, delay: 0.5 },
+                      x: { duration: 1, delay: 0.5 },
+                      y: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }
+                    }}
+                    className="absolute top-1/4 -right-4 w-[45%] z-20"
+                  >
+                    <img
+                      src="/assets/carrousel/carrousel_4.png"
+                      alt="Infrastructure"
+                      className="w-full drop-shadow-[0_15px_30px_rgba(0,0,0,0.4)] rounded-2xl border border-white/20 glass-modern p-1"
+                    />
+                  </motion.div>
+
+                  {/* Bottom-Left (carrousel.png) */}
+                  <motion.div
+                    initial={{ opacity: 0, x: -20, y: 30 }}
+                    whileInView={{ opacity: 1, x: 0, y: 0 }}
+                    animate={{ y: [0, -10, 0] }}
+                    transition={{
+                      opacity: { duration: 1, delay: 0.7 },
+                      x: { duration: 1, delay: 0.7 },
+                      y: { duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }
+                    }}
+                    className="absolute bottom-32 left-4 w-[35%] z-20"
+                  >
+                    <img
+                      src="/assets/carrousel/carrousel.png"
+                      alt="Visualization"
+                      className="w-full drop-shadow-[0_15px_30px_rgba(0,0,0,0.4)] rounded-2xl border border-white/20 glass-modern p-1"
+                    />
+                  </motion.div>
                 </div>
               </div>
             </CarouselItem>

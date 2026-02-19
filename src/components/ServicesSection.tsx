@@ -19,7 +19,7 @@ const services = [
     icon: Building2,
     title: "Implementación BIM",
     description:
-      "Guiamos la adopción de metodologías BIM en tu organización, alineadas con estándares nacionales e internacionales.",
+      "Guiamos la adopción de metodología BIM en tu organización, alineadas con estándares nacionales e internacionales.",
     features: ["ISO 19650", "Flujos colaborativos", "Digitalización"],
     gradient: "from-blue-500 to-cyan-500",
   },
@@ -27,7 +27,7 @@ const services = [
     icon: Layers,
     title: "Modelamiento BIM",
     description:
-      "Desarrollo de modelos inteligentes para expedientes técnicos con información paramétrica y detección de interferencias.",
+      "Desarrollo de modelos inteligentes para expedientes técnicos con información paramétrica y detección de interferencias. \n BIM 4D y 5D",
     features: ["LOD 300-400", "Clash Detection", "Quantificación"],
     gradient: "from-cyan-500 to-teal-500",
   },
@@ -35,7 +35,7 @@ const services = [
     icon: Home,
     title: "Diseño de Viviendas",
     description:
-      "Diseño arquitectónico y estructural de viviendas con enfoque en funcionalidad, estética y normativa.",
+      "Diseño arquitectónico y estructural de viviendas con enfoque en funcionalidad, estética y normativa. \nmemorias descriptivas",
     features: ["Arquitectura", "Estructuras", "Instalaciones"],
     gradient: "from-teal-500 to-emerald-500",
   },
@@ -89,11 +89,11 @@ export function ServicesSection() {
     <section
       id="servicios"
       ref={ref}
-      className="relative py-32 lg:py-48 overflow-hidden bg-[#f1f4f9]"
+      className="relative py-32 lg:py-48 overflow-hidden bg-secondary"
     >
       {/* Dynamic Background Elements */}
       <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-primary/5 blur-[150px] rounded-full animate-pulse" />
-      <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-[#031432]/5 blur-[120px] rounded-full" />
+      <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -112,7 +112,7 @@ export function ServicesSection() {
             Excelencia Técnica
           </motion.div>
 
-          <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-black text-[#031432] mb-8 leading-tight">
+          <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-black text-primary mb-8 leading-tight">
             Soluciones de <br />
             <span className="text-gradient-orange">Vanguardia Digital</span>
           </h2>
@@ -134,13 +134,13 @@ export function ServicesSection() {
             >
               <div className="relative h-full glass-modern rounded-[2.5rem] p-8 transition-all duration-700 hover:-translate-y-4 hover:shadow-2xl hover:border-primary/20 bg-white/70">
                 {/* Tactical Icon Container */}
-                <div className="w-20 h-20 rounded-3xl bg-[#031432] flex items-center justify-center mb-8 relative overflow-hidden group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
-                  <service.icon className="w-10 h-10 text-primary relative z-10" />
+                <div className="w-20 h-20 rounded-3xl bg-primary flex items-center justify-center mb-8 relative overflow-hidden group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                  <service.icon className="w-10 h-10 text-white relative z-10" />
                   <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent" />
                 </div>
 
                 {/* Content */}
-                <h3 className="text-2xl font-black text-[#031432] mb-4 group-hover:text-primary transition-colors">
+                <h3 className="text-2xl font-black text-primary mb-4 group-hover:text-accent transition-colors">
                   {service.title}
                 </h3>
 
@@ -151,7 +151,7 @@ export function ServicesSection() {
                 {/* Micro-Features */}
                 <div className="flex flex-wrap gap-2 mt-auto">
                   {service.features.slice(0, 2).map((feat) => (
-                    <span key={feat} className="text-[9px] font-black uppercase tracking-widest text-[#031432]/40 group-hover:text-primary/60 transition-colors">
+                    <span key={feat} className="text-[9px] font-black uppercase tracking-widest text-primary/40 group-hover:text-primary/60 transition-colors">
                       • {feat}
                     </span>
                   ))}
@@ -172,16 +172,16 @@ export function ServicesSection() {
           className="mt-32 flex flex-col items-center"
         >
           <div className="w-px h-24 bg-gradient-to-b from-primary to-transparent mb-12" />
-          <p className="text-[#031432]/60 font-bold tracking-widest uppercase text-xs mb-8">
+          <p className="text-primary/60 font-bold tracking-widest uppercase text-xs mb-8">
             ¿Listo para elevar tus estándares?
           </p>
           <a
             href="#contacto"
-            className="inline-flex items-center gap-4 text-[#031432] hover:text-primary font-black text-2xl transition-all group"
+            className="inline-flex items-center gap-4 text-primary hover:text-accent font-black text-2xl transition-all group"
           >
             Inicia tu proyecto hoy
-            <div className="w-12 h-12 rounded-full border-2 border-[#031432]/10 flex items-center justify-center group-hover:border-primary transition-colors group-hover:scale-110 transition-transform">
-              <ArrowUpRight className="w-6 h-6" />
+            <div className="w-12 h-12 rounded-full border-2 border-primary/10 flex items-center justify-center group-hover:border-primary transition-colors group-hover:scale-110 transition-transform">
+              <ArrowUpRight className="w-6 h-6 text-white" />
             </div>
           </a>
         </motion.div>

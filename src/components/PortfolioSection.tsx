@@ -15,7 +15,7 @@ const categories = [
 const projects = [
     {
         id: 1,
-        title: "Implementación BIM Municipal",
+        title: "Implementación BIM en Entidades Públicas",
         subtitle: "Cajamarca - Gestión Pública",
         category: "bim",
         image: "assets/trayectoria/municajamarca.jpeg",
@@ -24,7 +24,7 @@ const projects = [
     },
     {
         id: 2,
-        title: "Modelado Estructural",
+        title: "Supervicion de Proyectos BIM con Realidad Virtual y Aumentada",
         subtitle: "Viviendas y Edificaciones",
         category: "bim",
         image: "assets/trayectoria/implementaciondeempresas.jpeg",
@@ -60,7 +60,7 @@ const projects = [
     },
     {
         id: 6,
-        title: "Consultoría UNC",
+        title: "Comprometidos con el Desarrollo de Estudiantes",
         subtitle: "Alianza Académica",
         category: "bim",
         image: "assets/trayectoria/universidadcajamarca.jpeg",
@@ -78,7 +78,7 @@ const projects = [
     },
     {
         id: 8,
-        title: "Diseño Estructural CYPE",
+        title: "Certificados y Trabajos con Licencias Originales",
         subtitle: "Cálculo y Detallado",
         category: "3d",
         image: "assets/trayectoria/cype.jpeg",
@@ -115,7 +115,7 @@ export function PortfolioSection() {
     );
 
     return (
-        <section id="portafolio" ref={ref} className="relative py-32 lg:py-56 overflow-hidden bg-[#f8fafc]">
+        <section id="portafolio" ref={ref} className="relative py-32 lg:py-56 overflow-hidden bg-secondary/20">
             {/* Background elements */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 blur-[150px] rounded-full" />
 
@@ -134,7 +134,7 @@ export function PortfolioSection() {
                         Nuestra Trayectoria
                     </motion.div>
 
-                    <h2 className="font-display text-5xl md:text-7xl font-black text-[#031432] mb-8 tracking-tighter">
+                    <h2 className="font-display text-5xl md:text-7xl font-black text-primary mb-8 tracking-tighter">
                         Ingeniería en <span className="text-gradient-orange">Acción</span>
                     </h2>
 
@@ -150,8 +150,8 @@ export function PortfolioSection() {
                             key={category.id}
                             onClick={() => setActiveCategory(category.id)}
                             className={`px-8 py-3 rounded-2xl font-black text-sm uppercase tracking-widest transition-all duration-500 flex items-center gap-3 ${activeCategory === category.id
-                                ? "bg-[#031432] text-white shadow-2xl scale-105"
-                                : "bg-white/50 text-slate-400 hover:text-[#031432] border border-slate-100"
+                                ? "bg-primary text-white shadow-2xl scale-105"
+                                : "bg-white/50 text-slate-400 hover:text-primary border border-slate-100"
                                 }`}
                         >
                             <category.icon className={`w-4 h-4 ${activeCategory === category.id ? 'text-primary' : ''}`} />
@@ -176,7 +176,7 @@ export function PortfolioSection() {
                                 transition={{ duration: 0.6, delay: idx * 0.05 }}
                                 className="break-inside-avoid"
                             >
-                                <div className="group relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-[#031432]">
+                                <div className="group relative rounded-[2.5rem] overflow-hidden shadow-2xl bg-primary">
                                     {/* Media Container */}
                                     <div className="relative overflow-hidden">
                                         {project.type === "video" ? (
@@ -210,10 +210,10 @@ export function PortfolioSection() {
                                                     {project.description}
                                                 </p>
                                                 <div className="pt-4 flex gap-4 opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100">
-                                                    <Button className="rounded-2xl bg-white text-[#031432] font-black hover:bg-primary hover:text-white transition-colors">
+                                                    <Button className="rounded-2xl bg-white text-primary font-black hover:bg-accent hover:text-white transition-colors">
                                                         Detalles
                                                     </Button>
-                                                    <div className="w-12 h-12 rounded-2xl glass-frost flex items-center justify-center text-white hover:bg-white hover:text-[#031432] transition-colors cursor-pointer">
+                                                    <div className="w-12 h-12 rounded-2xl glass-frost flex items-center justify-center text-white hover:bg-white hover:text-primary transition-colors cursor-pointer">
                                                         <Maximize2 className="w-5 h-5" />
                                                     </div>
                                                 </div>

@@ -43,6 +43,7 @@ const benefits = [
   "Visualización pre-construcción",
   "Cumplimiento normativas BIM",
   "Decisiones basadas en datos",
+  "Automatización de flujos de trabajo",
 ];
 
 export function ClientFocusSection() {
@@ -50,10 +51,10 @@ export function ClientFocusSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="relative py-32 lg:py-56 overflow-hidden bg-slate-50">
+    <section ref={ref} className="relative py-32 lg:py-56 overflow-hidden bg-secondary">
       {/* Background Decor */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 blur-[150px] rounded-full -translate-y-1/2 translate-x-1/2" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-px bg-gradient-to-r from-[#031432]/0 via-primary/30 to-[#031432]/0" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-px bg-gradient-to-r from-primary/0 via-primary/30 to-primary/0" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -71,7 +72,7 @@ export function ClientFocusSection() {
           >
             Foco de Impacto
           </motion.span>
-          <h2 className="font-display text-4xl md:text-8xl font-black text-[#031432] mb-10 leading-[0.9] tracking-tighter">
+          <h2 className="font-display text-4xl md:text-8xl font-black text-primary mb-10 leading-[0.9] tracking-tighter">
             Ecosistema de <br />
             <span className="text-gradient-orange">Soluciones</span>
           </h2>
@@ -96,10 +97,10 @@ export function ClientFocusSection() {
                 transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
                 className="group glass-modern bg-white/80 p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] border-none shadow-xl hover:shadow-2xl transition-all duration-700"
               >
-                <div className="w-16 h-16 rounded-2xl bg-[#031432] flex items-center justify-center mb-8 group-hover:bg-primary group-hover:glow-orange-strong transition-all duration-500 shadow-xl">
+                <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center mb-8 group-hover:bg-accent group-hover:glow-orange-strong transition-all duration-500 shadow-xl">
                   <profile.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-black text-[#031432] mb-4 group-hover:text-primary transition-colors">
+                <h3 className="text-2xl font-black text-primary mb-4 group-hover:text-accent transition-colors">
                   {profile.title}
                 </h3>
                 <p className="text-slate-500 font-bold leading-relaxed">
@@ -116,7 +117,7 @@ export function ClientFocusSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="space-y-10"
           >
-            <div className="bg-[#031432] p-8 md:p-12 lg:p-16 rounded-[2.5rem] md:rounded-[3.5rem] shadow-2xl relative overflow-hidden group">
+            <div className="bg-primary p-8 md:p-12 lg:p-16 rounded-[2.5rem] md:rounded-[3.5rem] shadow-2xl relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 blur-[80px] rounded-full -mr-20 -mt-20 group-hover:scale-150 transition-transform duration-1000" />
 
               <h3 className="text-3xl font-black text-white mb-10">La Ventaja <span className="text-gradient-orange">Elite</span></h3>
@@ -153,15 +154,15 @@ export function ClientFocusSection() {
               className="glass-modern bg-white/70 p-12 rounded-[3.5rem] border-l-[12px] border-primary shadow-2xl relative"
             >
               <Quote className="absolute top-12 right-12 w-20 h-20 text-primary/5" />
-              <p className="text-2xl font-bold text-[#031432] italic mb-10 leading-[1.4]">
+              <p className="text-2xl font-bold text-primary italic mb-10 leading-[1.4]">
                 "Elite Engineering no solo entrega modelos; entrega <span className="text-primary">certeza técnica</span>."
               </p>
               <div className="flex items-center gap-6">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#031432] to-slate-800 flex items-center justify-center shadow-2xl">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-2xl">
                   <span className="text-white font-black text-xl">JC</span>
                 </div>
                 <div>
-                  <p className="text-xl font-black text-[#031432]">Juan Carlos M.</p>
+                  <p className="text-xl font-black text-primary">Juan Carlos M.</p>
                   <p className="text-slate-400 font-black text-xs uppercase tracking-widest">Director de Infraestructura</p>
                 </div>
               </div>

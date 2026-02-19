@@ -9,6 +9,8 @@ const navLinks = [
   { name: "Servicios", href: "#servicios" },
   { name: "Portafolio", href: "#portafolio" },
   { name: "Logros", href: "#logros" },
+  { name: "Galería", href: "#galeria" },
+  { name: "Experiencias", href: "#experiencias" },
   { name: "Aula Virtual", href: "#aula-virtual" },
   { name: "Contacto", href: "#contacto" },
 ];
@@ -43,12 +45,12 @@ export function Navbar() {
             className="flex items-center gap-4 group"
             whileHover={{ scale: 1.02 }}
           >
-            <div className="relative w-12 h-12 rounded-2xl bg-[#031432] flex items-center justify-center overflow-hidden shadow-2xl group-hover:glow-orange transition-all duration-500">
+            <div className="relative w-12 h-12 rounded-2xl bg-primary flex items-center justify-center overflow-hidden shadow-2xl group-hover:glow-orange transition-all duration-500">
               <Building2 className="w-6 h-6 text-primary animate-reveal" />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent" />
             </div>
             <div className="flex flex-col">
-              <span className={`font-black tracking-tighter text-xl transition-colors duration-500 ${isScrolled ? 'text-[#031432]' : 'text-white'}`}>
+              <span className={`font-black tracking-tighter text-xl transition-colors duration-500 ${isScrolled ? 'text-primary' : 'text-white'}`}>
                 ELITE<span className="text-primary">.</span>
               </span>
               <span className={`text-[9px] font-bold tracking-[0.3em] uppercase transition-colors duration-500 ${isScrolled ? 'text-slate-500 opacity-60' : 'text-white opacity-80'}`}>
@@ -63,7 +65,7 @@ export function Navbar() {
               <motion.a
                 key={link.name}
                 href={link.href}
-                className={`text-sm font-bold tracking-wide transition-all duration-500 relative group ${isScrolled ? 'text-[#031432] hover:text-primary' : 'text-white/90 hover:text-white'
+                className={`text-sm font-bold tracking-wide transition-all duration-500 relative group ${isScrolled ? 'text-foreground hover:text-primary' : 'text-white/90 hover:text-white'
                   }`}
               >
                 {link.name}
@@ -88,7 +90,7 @@ export function Navbar() {
 
           {/* Menu Toggle */}
           <button
-            className={`lg:hidden p-3 rounded-2xl transition-all duration-500 ${isScrolled ? 'bg-slate-100 text-[#031432]' : 'bg-white/10 text-white'
+            className={`lg:hidden p-3 rounded-2xl transition-all duration-500 ${isScrolled ? 'bg-slate-100 text-primary' : 'bg-white/10 text-white'
               }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
@@ -104,7 +106,7 @@ export function Navbar() {
             initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
             animate={{ opacity: 1, backdropFilter: "blur(20px)" }}
             exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
-            className="fixed inset-0 z-40 lg:hidden bg-[#031432]/95 pt-24 px-6"
+            className="fixed inset-0 z-40 lg:hidden bg-primary/95 pt-24 px-6"
           >
             <motion.div
               initial={{ y: 20, opacity: 0 }}

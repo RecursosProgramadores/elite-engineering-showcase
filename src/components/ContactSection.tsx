@@ -78,9 +78,9 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contacto" ref={ref} className="relative py-32 lg:py-56 overflow-hidden bg-slate-50">
+    <section id="contacto" ref={ref} className="relative py-32 lg:py-56 overflow-hidden bg-secondary">
       {/* Immersive Background Decor */}
-      <div className="absolute top-0 left-0 w-full h-full bg-[#031432]/5 -skew-y-6 translate-y-1/2" />
+      <div className="absolute top-0 left-0 w-full h-full bg-primary/5 -skew-y-6 translate-y-1/2" />
       <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-primary/5 blur-[150px] rounded-full" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
@@ -99,7 +99,7 @@ export function ContactSection() {
               Conecta con Élite
             </motion.div>
 
-            <h2 className="font-display text-4xl md:text-7xl font-black text-[#031432] mb-10 leading-[0.9] tracking-tighter">
+            <h2 className="font-display text-4xl md:text-7xl font-black text-primary mb-10 leading-[0.9] tracking-tighter">
               Ready for the <br />
               <span className="text-gradient-orange">Next Level?</span>
             </h2>
@@ -118,12 +118,12 @@ export function ContactSection() {
                   transition={{ delay: 0.3 + idx * 0.1 }}
                   className="group flex flex-col md:flex-row items-center gap-4 md:gap-6 p-6 md:p-8 glass-modern rounded-[2rem] md:rounded-[2.5rem] bg-white/70 hover:shadow-2xl transition-all duration-700 text-center md:text-left"
                 >
-                  <div className="w-16 h-16 rounded-2xl bg-[#031432] flex items-center justify-center group-hover:bg-primary transition-colors duration-500 shadow-xl">
+                  <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center group-hover:bg-accent transition-colors duration-500 shadow-xl">
                     <info.icon className="w-7 h-7 text-white" />
                   </div>
                   <div>
                     <span className="block text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">{info.label}</span>
-                    <span className="block text-xl font-black text-[#031432] group-hover:text-primary transition-colors">{info.value}</span>
+                    <span className="block text-xl font-black text-primary group-hover:text-accent transition-colors">{info.value}</span>
                   </div>
                 </motion.a>
               ))}
@@ -138,39 +138,39 @@ export function ContactSection() {
             className="relative"
           >
             <div className="bg-white p-8 md:p-12 lg:p-20 rounded-[2.5rem] md:rounded-[4rem] shadow-2xl relative z-10">
-              <h3 className="text-3xl font-black text-[#031432] mb-4">Direct Inquiry</h3>
+              <h3 className="text-3xl font-black text-primary mb-4">Direct Inquiry</h3>
               <p className="text-slate-500 font-bold mb-12">Cuéntanos sobre tu visión técnica.</p>
 
               <form onSubmit={handleSubmit} className="space-y-8">
                 <div className="grid md:grid-cols-2 gap-8">
                   <div className="space-y-3">
-                    <label className="text-xs font-black text-[#031432] uppercase tracking-widest">Nombre</label>
+                    <label className="text-xs font-black text-primary uppercase tracking-widest">Nombre</label>
                     <Input
-                      className="h-16 rounded-2xl bg-slate-50 border-none px-6 font-bold text-[#031432] focus:shadow-inner-nm transition-all"
+                      className="h-16 rounded-2xl bg-secondary/30 border-none px-6 font-bold text-primary focus:shadow-inner-nm transition-all"
                       placeholder="Tu nombre completo"
                     />
                   </div>
                   <div className="space-y-3">
-                    <label className="text-xs font-black text-[#031432] uppercase tracking-widest">Empresa</label>
+                    <label className="text-xs font-black text-primary uppercase tracking-widest">Empresa</label>
                     <Input
-                      className="h-16 rounded-2xl bg-slate-50 border-none px-6 font-bold text-[#031432] focus:shadow-inner-nm transition-all"
+                      className="h-16 rounded-2xl bg-secondary/30 border-none px-6 font-bold text-primary focus:shadow-inner-nm transition-all"
                       placeholder="Tu organización"
                     />
                   </div>
                 </div>
 
                 <div className="space-y-3">
-                  <label className="text-xs font-black text-[#031432] uppercase tracking-widest">Email Corporativo</label>
+                  <label className="text-xs font-black text-primary uppercase tracking-widest">Email Corporativo</label>
                   <Input
-                    className="h-16 rounded-2xl bg-slate-50 border-none px-6 font-bold text-[#031432] focus:shadow-inner-nm transition-all"
+                    className="h-16 rounded-2xl bg-secondary/30 border-none px-6 font-bold text-primary focus:shadow-inner-nm transition-all"
                     placeholder="email@empresa.com"
                   />
                 </div>
 
                 <div className="space-y-3">
-                  <label className="text-xs font-black text-[#031432] uppercase tracking-widest">Mensaje</label>
+                  <label className="text-xs font-black text-primary uppercase tracking-widest">Mensaje</label>
                   <Textarea
-                    className="min-h-[150px] rounded-3xl bg-slate-50 border-none p-6 font-bold text-[#031432] focus:shadow-inner-nm transition-all resize-none"
+                    className="min-h-[150px] rounded-3xl bg-secondary/30 border-none p-6 font-bold text-primary focus:shadow-inner-nm transition-all resize-none"
                     placeholder="Descríbenos brevemente el alcance de tu proyecto..."
                   />
                 </div>

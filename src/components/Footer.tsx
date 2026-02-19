@@ -58,7 +58,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative bg-[#031432] pt-20 md:pt-32 pb-16 overflow-hidden">
+    <footer className="relative bg-primary pt-20 md:pt-32 pb-16 overflow-hidden">
       {/* Decorative background lines */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-20" />
       <div className="absolute -bottom-48 -right-48 w-[600px] h-[600px] bg-primary/10 blur-[150px] rounded-full" />
@@ -147,7 +147,7 @@ export function Footer() {
         {/* Bottom Metadata */}
         <div className="pt-16 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-8">
           <p className="text-slate-500 text-xs font-black uppercase tracking-widest">
-            © {new Date().getFullYear()} Elite Engineering E.I.R.L. <span className="mx-2 text-slate-800">|</span> Made for Excellence
+            © {new Date().getFullYear()} Elite Engineering E.I.R.L. <span className="mx-2 text-white/10">|</span> Made for Excellence
           </p>
 
           <div className="flex items-center gap-12">

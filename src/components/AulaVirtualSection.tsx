@@ -19,6 +19,18 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 
+import fbIcon from "../assets/iconos/facebook.svg";
+import igIcon from "../assets/iconos/instagram.svg";
+import ytIcon from "../assets/iconos/youtube.svg";
+import tkIcon from "../assets/iconos/tiktok.svg";
+
+const socialMedia = [
+  { icon: fbIcon, link: "#", name: "Facebook", color: "bg-[#1877F2]", shadow: "shadow-[#1877F2]/20" },
+  { icon: igIcon, link: "#", name: "Instagram", color: "bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7]", shadow: "shadow-[#ee2a7b]/20" },
+  { icon: ytIcon, link: "#", name: "YouTube", color: "bg-[#FF0000]", shadow: "shadow-[#FF0000]/20" },
+  { icon: tkIcon, link: "#", name: "TikTok", color: "bg-black", shadow: "shadow-black/20" },
+];
+
 const categories = [
   "Todas las categorías",
   "BIM",
@@ -101,7 +113,7 @@ export function AulaVirtualSection() {
   return (
     <section id="aula-virtual" className="relative py-32 lg:py-56 bg-slate-50 overflow-hidden">
       {/* Immersive background decoration */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-[#031432]/5 -skew-x-12 translate-x-1/4" />
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/5 -skew-x-12 translate-x-1/4" />
       <div className="absolute top-1/4 left-1/4 w-[800px] h-[800px] bg-primary/5 blur-[150px] rounded-full animate-pulse" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
@@ -120,7 +132,7 @@ export function AulaVirtualSection() {
               Elite Academy
             </motion.div>
 
-            <h2 className="font-display text-4xl md:text-7xl font-black text-[#031432] mb-10 leading-[0.9] tracking-tighter">
+            <h2 className="font-display text-4xl md:text-7xl font-black text-primary mb-10 leading-[0.9] tracking-tighter">
               Lidera la <br />
               <span className="text-gradient-orange">Construcción 4.0</span>
             </h2>
@@ -147,7 +159,7 @@ export function AulaVirtualSection() {
             <div className="glass-modern p-8 md:p-12 rounded-[2.5rem] md:rounded-[3.5rem] shadow-2xl relative z-10 bg-white/70 overflow-hidden">
               <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/10 blur-[50px] rounded-full" />
               <div className="relative z-10">
-                <span className="block text-6xl md:text-8xl font-black text-[#031432] leading-none mb-4">500+</span>
+                <span className="block text-6xl md:text-8xl font-black text-primary leading-none mb-4">500+</span>
                 <span className="block text-xl md:text-2xl font-black text-primary uppercase tracking-widest mb-8">Graduados Élite</span>
                 <p className="text-slate-500 font-bold leading-relaxed mb-10">
                   Nuestra plataforma ha formado a los líderes técnicos de las constructoras más grandes del Perú.
@@ -158,7 +170,7 @@ export function AulaVirtualSection() {
                       <img src={`https://i.pravatar.cc/150?u=${i}`} alt="Student" />
                     </div>
                   ))}
-                  <div className="w-12 h-12 rounded-full border-4 border-white bg-[#031432] flex items-center justify-center text-white text-xs font-black">
+                  <div className="w-12 h-12 rounded-full border-4 border-white bg-primary flex items-center justify-center text-white text-xs font-black">
                     +495
                   </div>
                 </div>
@@ -174,8 +186,8 @@ export function AulaVirtualSection() {
               key={cat}
               onClick={() => setActiveCategory(cat)}
               className={`px-8 py-3 rounded-2xl font-black text-sm uppercase tracking-widest transition-all duration-500 ${activeCategory === cat
-                ? "bg-[#031432] text-white shadow-xl scale-105"
-                : "bg-white text-slate-400 hover:text-[#031432] border border-slate-100"
+                ? "bg-primary text-white shadow-xl scale-105"
+                : "bg-white text-slate-400 hover:text-primary border border-slate-100"
                 }`}
             >
               {cat}
@@ -211,7 +223,7 @@ export function AulaVirtualSection() {
                           <User className="w-4 h-4 text-primary" />
                           {course.instructor}
                         </div>
-                        <h3 className="text-2xl font-black text-[#031432] mb-6 line-clamp-2 h-16 group-hover/card:text-primary transition-colors">
+                        <h3 className="text-2xl font-black text-primary mb-6 line-clamp-2 h-16 group-hover/card:text-accent transition-colors">
                           {course.title}
                         </h3>
 
@@ -231,9 +243,9 @@ export function AulaVirtualSection() {
                         <div className="flex items-center justify-between border-t border-slate-100 pt-6">
                           <div className="flex flex-col">
                             <span className="text-xs font-bold text-slate-400 line-through">USD {course.oldPrice.toFixed(2)}</span>
-                            <span className="text-2xl font-black text-[#031432]">USD {course.price.toFixed(2)}</span>
+                            <span className="text-2xl font-black text-primary">USD {course.price.toFixed(2)}</span>
                           </div>
-                          <Button className="bg-[#031432] hover:bg-primary text-white font-black px-6 py-6 rounded-2xl group/buy">
+                          <Button className="bg-primary hover:bg-accent text-white font-black px-6 py-6 rounded-2xl group/buy">
                             INSCRIBIRSE
                           </Button>
                         </div>
@@ -252,7 +264,7 @@ export function AulaVirtualSection() {
           whileInView={{ opacity: 1, y: 0 }}
           className="mt-24 lg:mt-48 glass-dark p-8 md:p-16 rounded-[2.5rem] md:rounded-[4rem] relative overflow-hidden text-center text-white"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-[#031432]/20" />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary/40" />
           <div className="relative z-10 max-w-2xl mx-auto">
             <h3 className="text-4xl md:text-5xl font-black mb-8 leading-tight">
               Próximos lanzamientos <br />
@@ -274,6 +286,39 @@ export function AulaVirtualSection() {
           </div>
         </motion.div>
       </div>
+
+      {/* Social Media - Bottom Right Overlay */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        className="absolute bottom-24 right-4 lg:right-12 flex flex-col items-end gap-5 z-20 pointer-events-auto"
+      >
+        <span className="text-primary/40 font-black text-[10px] uppercase tracking-[0.4em] mr-2">
+          Redes Sociales
+        </span>
+        <div className="flex flex-row gap-4">
+          {socialMedia.map((social, i) => (
+            <motion.a
+              key={i}
+              href={social.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{
+                scale: 1.1,
+                y: -8,
+              }}
+              whileTap={{ scale: 0.95 }}
+              className={`w-12 h-12 ${social.color} rounded-xl flex items-center justify-center shadow-2xl border border-white/20 transition-all duration-300 group ${social.shadow}`}
+            >
+              <img
+                src={social.icon}
+                alt={social.name}
+                className="w-6 h-6 brightness-0 invert transition-transform duration-300 group-hover:scale-110"
+              />
+            </motion.a>
+          ))}
+        </div>
+      </motion.div>
     </section>
   );
 }

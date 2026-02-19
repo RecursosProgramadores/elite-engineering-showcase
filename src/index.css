@@ -9,28 +9,30 @@
 @layer base {
   :root {
     /* Main Background - Ultra Minimal */
-    --background: 216 33% 97%;
-    --foreground: 218 88% 8%;
+    --background: 0 0% 100%;
+    --foreground: 330 3% 16%;
 
     /* Card surfaces */
     --card: 0 0% 100%;
-    --card-foreground: 218 88% 8%;
+    --card-foreground: 330 3% 16%;
 
-    /* Primary - Vibrant Performance */
-    --primary: 4 82% 56%;
+    /* Primary - Professional Azure (#27435b) */
+    --primary: 207 40% 26%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary / Accents */
-    --secondary: 216 33% 92%;
-    --secondary-foreground: 218 88% 10%;
-    --muted: 216 33% 92%;
-    --muted-foreground: 218 20% 35%;
-    --accent: 4 82% 56%;
+    /* Secondary / Accents - Soft Gray (#d1cfd0) */
+    --secondary: 330 2% 82%;
+    --secondary-foreground: 207 40% 26%;
+    --muted: 330 2% 82%;
+    --muted-foreground: 330 3% 30%;
+    
+    /* Accent - Warm Orange (#e07b39) */
+    --accent: 24 73% 55%;
     --accent-foreground: 0 0% 100%;
 
-    --border: 216 20% 88%;
-    --input: 216 20% 88%;
-    --ring: 4 82% 56%;
+    --border: 330 2% 82%;
+    --input: 330 2% 82%;
+    --ring: 207 40% 26%;
     --radius: 1rem;
 
     /* Depth System */
@@ -40,12 +42,12 @@
     --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
     
     /* Neumorphism Shadows */
-    --nm-flat: 20px 20px 60px #ced1d6, -20px -20px 60px #ffffff;
-    --nm-pressed: inset 6px 6px 12px #ced1d6, inset -6px -6px 12px #ffffff;
+    --nm-flat: 20px 20px 60px #d1cfd0, -20px -20px 60px #ffffff;
+    --nm-pressed: inset 6px 6px 12px #d1cfd0, inset -6px -6px 12px #ffffff;
     
     /* Glows */
-    --glow-primary: 0 0 30px rgba(236, 64, 52, 0.25);
-    --glow-primary-strong: 0 0 50px rgba(236, 64, 52, 0.45);
+    --glow-primary: 0 0 30px rgba(39, 67, 91, 0.25);
+    --glow-primary-strong: 0 0 50px rgba(39, 67, 91, 0.45);
   }
 }
 
@@ -99,13 +101,13 @@
 
   /* Text Gradients */
   .text-gradient-orange {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#ec4034] via-[#ff6b61] to-[#ec4034];
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#e07b39] via-[#f0a060] to-[#e07b39];
     background-size: 200% auto;
     animation: textShimmer 3s linear infinite;
   }
 
   .text-gradient-navy {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#031432] to-[#0f172a];
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#27435b] to-[#1a2e3d];
   }
 
   /* Hover Effects */
@@ -115,7 +117,7 @@
 
   .hover-glow {
     @apply transition-all duration-300 hover:shadow-primary/30;
-    box-shadow: 0 0 0 0 rgba(236, 64, 52, 0);
+    box-shadow: 0 0 0 0 rgba(39, 67, 91, 0);
   }
   
   .hover-glow:hover {
@@ -136,15 +138,15 @@
   }
   
   .glow-orange {
-    box-shadow: var(--glow-primary);
+    box-shadow: 0 0 30px rgba(224, 123, 57, 0.25);
   }
 
   .glow-orange-sm {
-    box-shadow: 0 0 15px rgba(236, 64, 52, 0.2);
+    box-shadow: 0 0 15px rgba(224, 123, 57, 0.2);
   }
 
   .glow-orange-strong {
-    box-shadow: var(--glow-primary-strong);
+    box-shadow: 0 0 50px rgba(224, 123, 57, 0.45);
   }
 }
 
@@ -159,6 +161,6 @@
 
 /* Custom Selection */
 ::selection {
-  background: hsl(4 82% 56% / 0.3);
+  background: hsl(var(--primary) / 0.3);
   color: inherit;
 }

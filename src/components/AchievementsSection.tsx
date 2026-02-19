@@ -19,7 +19,7 @@ import { Button } from "@/components/ui/button";
 const achievements = [
   {
     icon: GraduationCap,
-    title: "Capacitación Municipalidad de Cajamarca",
+    title: "Capacitación de equipos y entidades públicas y privadas",
     description: "Formación en metodologías BIM para funcionarios públicos.",
     category: "Capacitación",
     asset: "assets/trayectoria/municajamarca.jpeg",
@@ -140,7 +140,7 @@ export function AchievementsSection() {
           >
             Trayectoria de Élite
           </motion.span>
-          <h2 className="font-display text-4xl md:text-8xl font-black text-[#031432] mb-10 leading-[0.9] tracking-tighter">
+          <h2 className="font-display text-4xl md:text-8xl font-black text-primary mb-10 leading-[0.9] tracking-tighter">
             Impacto que <br />
             <span className="text-gradient-orange">Trasciende</span>
           </h2>
@@ -176,7 +176,7 @@ export function AchievementsSection() {
                 <button
                   key={i}
                   onClick={() => setCurrentIndex(i)}
-                  className={`h-1.5 rounded-full transition-all duration-500 ${i === currentIndex ? "w-16 bg-primary shadow-[0_0_15px_rgba(236,64,52,0.5)]" : "w-4 bg-slate-200"
+                  className={`h-1.5 rounded-full transition-all duration-500 ${i === currentIndex ? "w-16 bg-primary shadow-[0_0_15px_rgba(39,67,91,0.5)]" : "w-4 bg-slate-200"
                     }`}
                 />
               ))}
@@ -214,7 +214,7 @@ export function AchievementsSection() {
                           className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                         />
                       )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#031432] via-[#031432]/20 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/20 to-transparent" />
                     </div>
 
                     {/* Elite Metadata */}
@@ -222,7 +222,7 @@ export function AchievementsSection() {
                       <span className="inline-flex w-fit px-4 py-1.5 rounded-full bg-primary text-white text-[10px] font-black uppercase tracking-[0.2em] mb-6 shadow-lg">
                         {achievement.category}
                       </span>
-                      <h3 className="text-2xl md:text-3xl font-black text-white mb-6 leading-tight group-hover:text-primary transition-colors">
+                      <h3 className="text-2xl md:text-3xl font-black text-white mb-6 leading-tight group-hover:text-accent transition-colors">
                         {achievement.title}
                       </h3>
                       <p className="text-slate-300 font-medium leading-relaxed opacity-0 group-hover:opacity-100 translate-y-8 group-hover:translate-y-0 transition-all duration-500">
@@ -246,7 +246,7 @@ export function AchievementsSection() {
             {[
               { value: "11+", label: "Hitos Destacados" },
               { value: "05+", label: "Instituciones de Élite" },
-              { value: "03+", label: "Gobiernos Regionales" },
+              { value: "07+", label: "Empresas Privadas" },
               { value: "100%", label: "Trazabilidad" },
             ].map((stat, idx) => (
               <div key={idx} className="flex flex-col gap-2">

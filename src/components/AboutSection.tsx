@@ -4,10 +4,11 @@ import { useRef } from "react";
 import { Target, Eye, History, Rocket, CheckCircle2 } from "lucide-react";
 
 const timelineEvents = [
-  { year: "2014", title: "Fundación", description: "Nace Elite Engineering con visión de excelencia" },
-  { year: "2017", title: "Expansión BIM", description: "Adopción de metodologías BIM avanzadas" },
-  { year: "2020", title: "Innovación Digital", description: "Integración de VR, AR y vistas 360°" },
-  { year: "2024", title: "Liderazgo Regional", description: "Referentes en capacitación BIM" },
+  { year: "2023", title: "Fundación", description: "Nace Elite Engineering con visión de excelencia" },
+  { year: "2023", title: "Liderazgo Regional", description: "Referentes en capacitación BIM" },
+  { year: "2024", title: "Expansión BIM", description: "Adopción de metodologías BIM avanzadas" },
+  { year: "2024", title: "Innovación Digital", description: "Integración de VR, AR y vistas 360°" },
+
 ];
 
 const values = [
@@ -38,7 +39,7 @@ export function AboutSection() {
             transition={{ duration: 1 }}
             className="relative"
           >
-            <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl bg-[#031432]">
+            <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl bg-primary">
               <video
                 autoPlay
                 muted
@@ -48,7 +49,7 @@ export function AboutSection() {
               >
                 <source src="/assets/home3d.mp4" type="video/mp4" />
               </video>
-              <div className="absolute inset-0 bg-gradient-to-t from-[#031432]/80 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent" />
               <div className="absolute bottom-12 left-12 right-12">
                 <p className="text-white text-2xl font-black italic leading-tight">
                   "La ingeniería no es solo construir; es rediseñar el futuro con precisión."
@@ -67,7 +68,7 @@ export function AboutSection() {
                   <Rocket className="w-8 h-8 text-white" />
                 </div>
                 <div>
-                  <span className="block text-3xl font-black text-[#031432]">Elite</span>
+                  <span className="block text-3xl font-black text-primary">Elite</span>
                   <span className="text-xs font-bold uppercase tracking-widest text-slate-400">Engineering E.I.R.L</span>
                 </div>
               </div>
@@ -88,17 +89,17 @@ export function AboutSection() {
               Historia y Compromiso
             </motion.div>
 
-            <h2 className="font-display text-5xl md:text-7xl font-black text-[#031432] mb-10 leading-[0.9] tracking-tighter">
+            <h2 className="font-display text-5xl md:text-7xl font-black text-primary mb-10 leading-[0.9] tracking-tighter">
               Pasión por la <br />
               <span className="text-gradient-orange">Excelencia Real</span>
             </h2>
 
             <div className="space-y-8 text-slate-500 text-xl font-medium leading-relaxed">
               <p>
-                Desde 2014, <span className="text-[#031432] font-black underline decoration-primary/30">Elite Engineering</span> ha sido el aliado estratégico para proyectos que exigen resultados impecables.
+                Desde 2023, <span className="text-primary font-black underline decoration-primary/30">Elite Engineering</span> ha sido el aliado estratégico para proyectos que exigen resultados impecables.
               </p>
               <p>
-                No solo implementamos BIM; creamos flujos de trabajo inteligentes que eliminan la incertidumbre y multiplican la rentabilidad de cada inversión.
+                No solo implementamos BIM; creamos flujos de trabajo inteligentes impulsados por la pasión de compartir y enseñar, eliminando la incertidumbre y multiplicando la rentabilidad de cada inversión.
               </p>
             </div>
 
@@ -107,7 +108,7 @@ export function AboutSection() {
               {values.map((val) => (
                 <div key={val.title} className="p-8 glass-modern rounded-3xl hover:-translate-y-2 transition-transform duration-500 bg-slate-50/50">
                   <val.icon className="w-8 h-8 text-primary mb-4" />
-                  <h4 className="text-xl font-black text-[#031432] mb-2">{val.title}</h4>
+                  <h4 className="text-xl font-black text-primary mb-2">{val.title}</h4>
                   <p className="text-sm text-slate-500 leading-relaxed font-medium">{val.text}</p>
                 </div>
               ))}
@@ -129,7 +130,7 @@ export function AboutSection() {
                 <span className="text-6xl font-black text-primary mb-4 transition-all duration-500 group-hover:scale-110 group-hover:glow-orange-sm">
                   {event.year}
                 </span>
-                <h5 className="text-lg font-black text-[#031432] mb-2 uppercase tracking-wide">{event.title}</h5>
+                <h5 className="text-lg font-black text-primary mb-2 uppercase tracking-wide">{event.title}</h5>
                 <p className="text-sm text-slate-400 font-bold">{event.description}</p>
               </motion.div>
             ))}

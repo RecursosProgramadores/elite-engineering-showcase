@@ -8,6 +8,8 @@ import { ClientFocusSection } from "@/components/ClientFocusSection";
 import { AulaVirtualSection } from "@/components/AulaVirtualSection";
 import { CertificateSection } from "@/components/CertificateSection";
 import { ContactSection } from "@/components/ContactSection";
+import { GallerySection } from "@/components/GallerySection";
+import { VRExperienceSection } from "@/components/VRExperienceSection";
 import { Footer } from "@/components/Footer";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
@@ -23,7 +25,9 @@ const Index = () => {
         <AchievementsSection />
         <ClientFocusSection />
         <AulaVirtualSection />
+        <VRExperienceSection />
         <CertificateSection />
+        <GallerySection />
         <ContactSection />
       </main>
       <Footer />
