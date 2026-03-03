@@ -2,34 +2,35 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Glasses, Smartphone, Eye, Sparkles } from "lucide-react";
+import { getAssetPath } from "@/lib/assets";
 
 const experiences = [
     {
         title: "Inmersión Educativa",
         description: "Visualiza proyectos educativos en 360° con precisión milimétrica.",
-        bg: "src/assets/galeria/MODELAMIENTOCOLEGIOSUNIVERSIDADES.jpeg",
-        qr: "src/assets/qr/qr1.jpeg",
+        bg: getAssetPath("galeria/MODELAMIENTOCOLEGIOSUNIVERSIDADES.jpeg"),
+        qr: getAssetPath("qr/qr1.jpeg"),
         category: "Realidad Virtual"
     },
     {
         title: "Gemelos Digitales",
         description: "Supervisa el avance de obra real mediante gemelos digitales interactivos.",
-        bg: "src/assets/galeria/ImplementaciongemelosdigitalesBIMobrareal.jpeg",
-        qr: "src/assets/qr/qr2.jpeg",
+        bg: getAssetPath("galeria/ImplementaciongemelosdigitalesBIMobrareal.jpeg"),
+        qr: getAssetPath("qr/qr2.jpeg"),
         category: "Realidad Aumentada"
     },
     {
         title: "Diseño Moderno",
         description: "Recorre espacios diseñados bajo estándares BIM de alta eficiencia.",
-        bg: "src/assets/galeria/modernointegrajuegocirculacionconfort.jpeg",
-        qr: "src/assets/qr/qr3.jpeg",
+        bg: getAssetPath("galeria/modernointegrajuegocirculacionconfort.jpeg"),
+        qr: getAssetPath("qr/qr3.jpeg"),
         category: "360° View"
     },
     {
         title: "Supervisión Técnica",
         description: "Validación de sistemas pre-instalación mediante visualización avanzada.",
-        bg: "src/assets/galeria/Supervisioncampopreinstalacionsistemas.jpeg",
-        qr: "src/assets/qr/qr4.jpeg",
+        bg: getAssetPath("galeria/Supervisioncampopreinstalacionsistemas.jpeg"),
+        qr: getAssetPath("qr/qr4.jpeg"),
         category: "VR Proyectada"
     }
 ];

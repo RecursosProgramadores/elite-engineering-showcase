@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Award, CheckCircle, ShieldCheck, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { getAssetPath } from "@/lib/assets";
 
 export function CertificateSection() {
     return (
@@ -58,7 +59,7 @@ export function CertificateSection() {
                             >
                                 <div className="relative rounded-[3rem] overflow-hidden bg-white shadow-2xl border border-slate-100 p-4">
                                     <img
-                                        src="/img/certificado.png"
+                                        src={getAssetPath("img/certificado.png")}
                                         alt="Elite Professional Certification"
                                         className="w-full h-auto rounded-[2.5rem] shadow-lg"
                                     />

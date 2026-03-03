@@ -2,70 +2,71 @@ import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "framer-motion";
 import { X, Maximize2, Camera, Sparkles } from "lucide-react";
+import { getAssetPath } from "@/lib/assets";
 
 const galleryImages = [
     {
-        src: "src/assets/galeria/10COLELGIOSDISENADOSBAJOESTANDARESBIM.jpeg",
+        src: getAssetPath("galeria/10COLELGIOSDISENADOSBAJOESTANDARESBIM.jpeg"),
         title: "Estándares BIM en Colegios",
         category: "Educación"
     },
     {
-        src: "src/assets/galeria/DISENOPROYECTOSBIM.jpeg",
+        src: getAssetPath("galeria/DISENOPROYECTOSBIM.jpeg"),
         title: "Diseño de Proyectos BIM",
         category: "Diseño"
     },
     {
-        src: "src/assets/galeria/DisenoEficienteEntornosEducativos.jpeg",
+        src: getAssetPath("galeria/DisenoEficienteEntornosEducativos.jpeg"),
         title: "Entornos Educativos Eficientes",
         category: "Arquitectura"
     },
     {
-        src: "src/assets/galeria/ImplementaciongemelosdigitalesBIMobrareal.jpeg",
+        src: getAssetPath("galeria/ImplementaciongemelosdigitalesBIMobrareal.jpeg"),
         title: "Gemelos Digitales en Obra",
         category: "Construcción"
     },
     {
-        src: "src/assets/galeria/MODELAMIENTOCOLEGIOSUNIVERSIDADES.jpeg",
+        src: getAssetPath("galeria/MODELAMIENTOCOLEGIOSUNIVERSIDADES.jpeg"),
         title: "Modelamiento Universitario",
         category: "Educación"
     },
     {
-        src: "src/assets/galeria/PresentacionBIMmedianteRVprivada.jpeg",
+        src: getAssetPath("galeria/PresentacionBIMmedianteRVprivada.jpeg"),
         title: "Presentación BIM en VR",
         category: "Tecnología"
     },
     {
-        src: "src/assets/galeria/Prevencionmedianterevisioninterferencias.jpeg",
+        src: getAssetPath("galeria/Prevencionmedianterevisioninterferencias.jpeg"),
         title: "Prevención de Interferencias",
         category: "Ingeniería"
     },
     {
-        src: "src/assets/galeria/ProcesosBIMauditablestrazablesalineados.jpeg",
+        src: getAssetPath("galeria/ProcesosBIMauditablestrazablesalineados.jpeg"),
         title: "Procesos BIM Auditables",
         category: "Gestión"
     },
     {
-        src: "src/assets/galeria/Reconocimientodigitabasadoencondicionesreales..jpeg",
+        src: getAssetPath("galeria/Reconocimientodigitabasadoencondicionesreales..jpeg"),
         title: "Reconocimiento Digital Real",
         category: "Tecnología"
     },
     {
-        src: "src/assets/galeria/Supervisioncampopreinstalacionsistemas.jpeg",
+        src: getAssetPath("galeria/Supervisioncampopreinstalacionsistemas.jpeg"),
         title: "Supervisión de Campo",
         category: "Inspección"
     },
     {
-        src: "src/assets/galeria/VERIFICACIONACABADOSGEMELODIGITAL.jpeg",
+        src: getAssetPath("galeria/VERIFICACIONACABADOSGEMELODIGITAL.jpeg"),
         title: "Verificación de Acabados",
         category: "Calidad"
     },
     {
-        src: "src/assets/galeria/masquemodelosestandaresBIM.jpeg",
+        src: getAssetPath("galeria/masquemodelosestandaresBIM.jpeg"),
         title: "Estándares de Excelencia",
         category: "BIM"
     },
     {
-        src: "src/assets/galeria/modernointegrajuegocirculacionconfort.jpeg",
+        src: getAssetPath("galeria/modernointegrajuegocirculacionconfort.jpeg"),
         title: "Diseño Moderno e Integrado",
         category: "Arquitectura"
     }

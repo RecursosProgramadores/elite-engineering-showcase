@@ -15,6 +15,7 @@ import {
   Trophy,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { getAssetPath } from "@/lib/assets";
 
 const achievements = [
   {
@@ -22,7 +23,7 @@ const achievements = [
     title: "Capacitación de equipos y entidades públicas y privadas",
     description: "Formación en metodologías BIM para funcionarios públicos.",
     category: "Capacitación",
-    asset: "assets/trayectoria/municajamarca.jpeg",
+    asset: getAssetPath("trayectoria/municajamarca.jpeg"),
     type: "image"
   },
   {
@@ -30,7 +31,7 @@ const achievements = [
     title: "Visualización con Realidad Virtual",
     description: "Experiencias VR para visualización inmersiva de proyectos.",
     category: "Tecnología",
-    asset: "assets/trayectoria/vizualizacionrealidadvirtual.mp4",
+    asset: getAssetPath("trayectoria/vizualizacionrealidadvirtual.mp4"),
     type: "video"
   },
   {
@@ -38,7 +39,7 @@ const achievements = [
     title: "Capacitación VR/AR en Proyectos BIM",
     description: "Entrenamiento especializado en realidad virtual y aumentada.",
     category: "Capacitación",
-    asset: "assets/trayectoria/Capacitacionbim.jpeg",
+    asset: getAssetPath("trayectoria/Capacitacionbim.jpeg"),
     type: "image"
   },
   {
@@ -46,7 +47,7 @@ const achievements = [
     title: "Charlas en Universidad Nacional de Cajamarca",
     description: "Compartiendo conocimientos con la comunidad universitaria.",
     category: "Academia",
-    asset: "assets/trayectoria/universidadcajamarca.jpeg",
+    asset: getAssetPath("trayectoria/universidadcajamarca.jpeg"),
     type: "image"
   },
   {
@@ -54,7 +55,7 @@ const achievements = [
     title: "Implementación en Entidades Públicas",
     description: "Apoyo en flujos de trabajo BIM en instituciones gubernamentales.",
     category: "Consultoría",
-    asset: "assets/trayectoria/entidadespublicas.jpeg",
+    asset: getAssetPath("trayectoria/entidadespublicas.jpeg"),
     type: "image"
   },
   {
@@ -62,7 +63,7 @@ const achievements = [
     title: "Vuelos con Drones Colaborativos",
     description: "Levantamientos aerofotogramétricos en proyectos colaborativos.",
     category: "Tecnología",
-    asset: "assets/trayectoria/Vueloscondrones.jpeg",
+    asset: getAssetPath("trayectoria/Vueloscondrones.jpeg"),
     type: "image"
   },
   {
@@ -70,7 +71,7 @@ const achievements = [
     title: "Capacitación Empresarial",
     description: "Formación y adopción de BIM para empresas constructoras.",
     category: "Capacitación",
-    asset: "assets/trayectoria/implementaciondeempresas.jpeg",
+    asset: getAssetPath("trayectoria/implementaciondeempresas.jpeg"),
     type: "image"
   },
   {
@@ -78,7 +79,7 @@ const achievements = [
     title: "Superposición AR en Proyectos",
     description: "Realidad aumentada para visualización en obra.",
     category: "Tecnología",
-    asset: "assets/trayectoria/entidadespublicas.jpeg",
+    asset: getAssetPath("trayectoria/entidadespublicas.jpeg"),
     type: "image"
   },
   {
@@ -86,7 +87,7 @@ const achievements = [
     title: "Capacitación Universitaria",
     description: "Formación de nuevas generaciones en universidades.",
     category: "Academia",
-    asset: "assets/trayectoria/capacitaciondiferentesuniversidades.jpeg",
+    asset: getAssetPath("trayectoria/capacitaciondiferentesuniversidades.jpeg"),
     type: "image"
   },
   {
@@ -94,7 +95,7 @@ const achievements = [
     title: "Licencias CYPE Autorizadas",
     description: "Software original y licencias autorizadas CYPE.",
     category: "Calidad",
-    asset: "assets/trayectoria/cype.jpeg",
+    asset: getAssetPath("trayectoria/cype.jpeg"),
     type: "image"
   },
   {
@@ -102,7 +103,7 @@ const achievements = [
     title: "Apoyo UNC",
     description: "Talleres continuos con Universidad Nacional de Cajamarca.",
     category: "Academia",
-    asset: "assets/trayectoria/charlasenapoyo.jpeg",
+    asset: getAssetPath("trayectoria/charlasenapoyo.jpeg"),
     type: "image"
   },
 ];

@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight, MessageCircle, ChevronDown, Building2, Sparkles, GraduationCap, BookOpen, Clock, Users, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState, useCallback } from "react";
+import { getAssetPath } from "@/lib/assets";
 import {
   Carousel,
   CarouselContent,
@@ -100,7 +101,7 @@ export function HeroSection() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-overlay"
         >
-          <source src="/assets/home3d.mp4" type="video/mute" />
+          <source src={getAssetPath("home3d.mp4")} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/60 to-primary" />
       </div>
@@ -190,12 +191,12 @@ export function HeroSection() {
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 1 }}
-                  className="hidden lg:flex justify-center"
+                  className="hidden lg:flex justify-center lg:-mt-48"
                 >
                   <div className="relative group">
                     <div className="absolute -inset-20 bg-primary/20 blur-[120px] rounded-full group-hover:bg-primary/30 transition-all duration-700" />
                     <img
-                      src="/assets/carrousel/carrousel.png"
+                      src={getAssetPath("carrousel/carrousel.png")}
                       alt="Elite BIM Visualization"
                       className="relative z-10 w-full max-w-lg drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:scale-105 transition-transform duration-700"
                     />
@@ -243,7 +244,7 @@ export function HeroSection() {
                     className="relative z-10 w-[70%] mx-auto"
                   >
                     <img
-                      src="/assets/carrousel/carrousel_2.png"
+                      src={getAssetPath("carrousel/carrousel_2.png")}
                       alt="Academy Platform"
                       className="w-full drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] rounded-[2rem] border border-white/10"
                     />
@@ -262,7 +263,7 @@ export function HeroSection() {
                     className="absolute -top-16 -left-12 w-[40%] z-20"
                   >
                     <img
-                      src="/assets/carrousel/carrousel_3.png"
+                      src={getAssetPath("carrousel/carrousel_3.png")}
                       alt="BIM Course"
                       className="w-full drop-shadow-[0_15px_30px_rgba(0,0,0,0.4)] rounded-2xl border border-white/20 glass-modern p-1"
                     />
@@ -281,7 +282,7 @@ export function HeroSection() {
                     className="absolute top-1/4 -right-4 w-[45%] z-20"
                   >
                     <img
-                      src="/assets/carrousel/carrousel_4.png"
+                      src={getAssetPath("carrousel/carrousel_4.png")}
                       alt="Infrastructure"
                       className="w-full drop-shadow-[0_15px_30px_rgba(0,0,0,0.4)] rounded-2xl border border-white/20 glass-modern p-1"
                     />
@@ -300,7 +301,7 @@ export function HeroSection() {
                     className="absolute bottom-32 left-4 w-[35%] z-20"
                   >
                     <img
-                      src="/assets/carrousel/carrousel.png"
+                      src={getAssetPath("carrousel/carrousel.png")}
                       alt="Visualization"
                       className="w-full drop-shadow-[0_15px_30px_rgba(0,0,0,0.4)] rounded-2xl border border-white/20 glass-modern p-1"
                     />

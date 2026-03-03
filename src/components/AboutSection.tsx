@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { getAssetPath } from "@/lib/assets";
 import { Target, Eye, History, Rocket, CheckCircle2 } from "lucide-react";
 
 const timelineEvents = [
@@ -47,7 +48,7 @@ export function AboutSection() {
                 playsInline
                 className="w-full h-[600px] object-cover opacity-80"
               >
-                <source src="/assets/home3d.mp4" type="video/mp4" />
+                <source src={getAssetPath("home3d.mp4")} type="video/mp4" />
               </video>
               <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent" />
               <div className="absolute bottom-12 left-12 right-12">

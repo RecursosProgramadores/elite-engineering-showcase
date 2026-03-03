@@ -18,17 +18,15 @@ import {
   CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
+import { getAssetPath } from "@/lib/assets";
 
-import fbIcon from "../assets/iconos/facebook.svg";
-import igIcon from "../assets/iconos/instagram.svg";
-import ytIcon from "../assets/iconos/youtube.svg";
-import tkIcon from "../assets/iconos/tiktok.svg";
+// Icons are now served from public/assets via getAssetPath
 
 const socialMedia = [
-  { icon: fbIcon, link: "#", name: "Facebook", color: "bg-[#1877F2]", shadow: "shadow-[#1877F2]/20" },
-  { icon: igIcon, link: "#", name: "Instagram", color: "bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7]", shadow: "shadow-[#ee2a7b]/20" },
-  { icon: ytIcon, link: "#", name: "YouTube", color: "bg-[#FF0000]", shadow: "shadow-[#FF0000]/20" },
-  { icon: tkIcon, link: "#", name: "TikTok", color: "bg-black", shadow: "shadow-black/20" },
+  { icon: getAssetPath("iconos/facebook.svg"), link: "#", name: "Facebook", color: "bg-[#1877F2]", shadow: "shadow-[#1877F2]/20" },
+  { icon: getAssetPath("iconos/instagram.svg"), link: "#", name: "Instagram", color: "bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7]", shadow: "shadow-[#ee2a7b]/20" },
+  { icon: getAssetPath("iconos/youtube.svg"), link: "#", name: "YouTube", color: "bg-[#FF0000]", shadow: "shadow-[#FF0000]/20" },
+  { icon: getAssetPath("iconos/tiktok.svg"), link: "#", name: "TikTok", color: "bg-black", shadow: "shadow-black/20" },
 ];
 
 const categories = [
@@ -49,7 +47,7 @@ const courses = [
     rating: 5.0,
     price: 39.0,
     oldPrice: 49.99,
-    image: "/curso/curso1.png",
+    image: getAssetPath("curso/curso1.png"),
     category: "BIM",
   },
   {
@@ -61,7 +59,7 @@ const courses = [
     rating: 5.0,
     price: 39.0,
     oldPrice: 49.99,
-    image: "/curso/curso2.png",
+    image: getAssetPath("curso/curso2.png"),
     category: "BIM",
   },
   {
@@ -73,7 +71,7 @@ const courses = [
     rating: 5.0,
     price: 49.0,
     oldPrice: 59.99,
-    image: "/assets/carrousel/carrousel_3.png",
+    image: getAssetPath("carrousel/carrousel_3.png"),
     category: "Estructuras",
   },
   {
@@ -85,7 +83,7 @@ const courses = [
     rating: 5.0,
     price: 49.0,
     oldPrice: 59.99,
-    image: "/assets/carrousel/carrousel_4.png",
+    image: getAssetPath("carrousel/carrousel_4.png"),
     category: "Estructuras",
   },
   {
@@ -97,7 +95,7 @@ const courses = [
     rating: 4.9,
     price: 45.0,
     oldPrice: 55.0,
-    image: "/assets/carrousel/carrousel.png",
+    image: getAssetPath("carrousel/carrousel.png"),
     category: "BIM",
   },
 ];
